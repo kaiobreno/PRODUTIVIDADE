@@ -1,0 +1,12 @@
+name: PRODUTIVIDADE
+title: PRODUTIVIDADE
+username:
+account: tjrn
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2701062
+bundleId: 3551424
+url: https://tjrn.shinyapps.io/PRODUTIVIDADE/
+when: 1598278624.35222
+asMultiple: FALSE
+asStatic: FALSE
