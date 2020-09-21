@@ -5,8 +5,8 @@ account: tjrn
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2701062
-bundleId: 3640128
+bundleId: 3652493
 url: https://tjrn.shinyapps.io/PRODUTIVIDADE/
-when: 1600353476.61729
+when: 1600695322.44722
 asMultiple: FALSE
 asStatic: FALSE

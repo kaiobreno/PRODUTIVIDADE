@@ -10,7 +10,7 @@ dados_atu <- read_excel("Indicadores - Atualizado em 2020-07-29 08-04-55.xls")
 
 dados_atu <- dados_atu %>% filter(str_detect(`MÊS DE REFERÊNCIA`,pattern = "20$")==FALSE)
 
-dados_2020 <- read_excel("Indicadores - Atualizado em 2020-08-24 09-05-26.xls") ####
+dados_2020 <- read_excel("Indicadores - Atualizado em 2020-09-21 08-02-50.xls") ####
 
 dados_atu <- rbind(dados_atu, dados_2020)
 
@@ -149,7 +149,7 @@ names(acervo)[21] <- "jul2"
 
 # acrescentando agosto ao acervo 
 
-acervo_agosto_20 <- read_excel("Acervo - Atualizado em 2020-08-24 09-05-06.xls") ###
+acervo_agosto_20 <- read_excel("Acervo - Atualizado em 2020-08-31 08-00-21.xls") 
 
 acervo_agosto_20$UNIDADE[which(acervo_agosto_20$UNIDADE %in%
                                 c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
@@ -172,12 +172,38 @@ acervo <- left_join(acervo, acervo_agosto_20[,c(1,4)], by = c("Comarca - Unidade
 names(acervo)[22] <- "ago2"
 
 
+# acrescentando setembro ao acervo 
+
+acervo_setembro_20 <- read_excel("Acervo - Atualizado em 2020-09-21 08-00-23.xls") ###
+
+acervo_setembro_20$UNIDADE[which(acervo_setembro_20$UNIDADE %in%
+                                 c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
+  "NATAL - JUIZADO ESPECIAL CRIMINAL CENTRAL"
+
+acervo_setembro_20$UNIDADE[which(acervo_setembro_20$UNIDADE %in%
+                                 c("NATAL - 14º JUIZADO ESPECIAL CÍVEL"))] <-
+  "NATAL - 14º JUIZADO ESPECIAL CÍVEL CENTRAL"
+
+acervo_setembro_20$UNIDADE[which(acervo_setembro_20$UNIDADE %in%
+                                 c("NATAL - 15º JUIZADO ESPECIAL CÍVEL"))] <-
+  "NATAL - 15º JUIZADO ESPECIAL CÍVEL CENTRAL"
+
+acervo_setembro_20$UNIDADE[which(acervo_setembro_20$UNIDADE %in%
+                                 c("NATAL - 16º JUIZADO ESPECIAL CÍVEL"))] <-
+  "NATAL - 16º JUIZADO ESPECIAL CÍVEL CENTRAL"
+
+acervo <- left_join(acervo, acervo_setembro_20[,c(1,4)], by = c("Comarca - Unidade" = "UNIDADE"))
+
+names(acervo)[23] <- "set2"
+
+
+
 # Preparando todo o acervo
 
-acervo <- acervo %>% gather("MÊS", "ACERVO", 3:22)
+acervo <- acervo %>% gather("MÊS", "ACERVO", 3:23)
 
 for(i in 1:dim(acervo)[1]){
-  if(acervo$MÊS[i] %in% c("jan2", "fev2", "mar2", "abr2", "mai2", "jun2", "jul2", "ago2")){acervo$ANO[i] <- 2020
+  if(acervo$MÊS[i] %in% c("jan2", "fev2", "mar2", "abr2", "mai2", "jun2", "jul2", "ago2","set2")){acervo$ANO[i] <- 2020
   } else{acervo$ANO[i] <- 2019}
 }
 
@@ -190,6 +216,7 @@ for(i in 1:dim(acervo)[1]){
   } else if(acervo$MÊS[i] == "jun2"){acervo$MÊS[i] <- "jun"
   } else if(acervo$MÊS[i] == "jul2"){acervo$MÊS[i] <- "jul"
   } else if(acervo$MÊS[i] == "ago2"){acervo$MÊS[i] <- "ago"
+  } else if(acervo$MÊS[i] == "set2"){acervo$MÊS[i] <- "set"
   }
 }
 
@@ -200,7 +227,7 @@ todos <- left_join(dados_atu, acervo, by = c("UNIDADE" = "Comarca - Unidade", "D
 
 # Taxa de congestionamento
 
-taxa <- read_excel("Taxa de congestionamento - Atualizado em  2020-08-24 09-05-06.xls") ###
+taxa <- read_excel("Taxa de congestionamento - Atualizado em  2020-09-21 08-00-21.xls") ###
 
 for (i in 1:nrow(taxa)) {
   if (taxa$MÊS[i] == 1) {taxa$mes[i] <- "jan"}
@@ -220,13 +247,13 @@ for (i in 1:nrow(taxa)) {
 taxa <- taxa %>% mutate(mes_ano = paste(mes, str_sub(ANO, start = 3), sep = "/"))
 
 # Mudar a ordem quando acrescentar um mês
-taxa$mes_ano <- factor(taxa$mes_ano, levels(as.factor(taxa$mes_ano))[c(12, 11, 10, 3, 5, 4, 9, 1, 8, 7,6,2)])
+taxa$mes_ano <- factor(taxa$mes_ano, levels(as.factor(taxa$mes_ano))[c(11, 10, 3, 5, 4, 9, 1, 8, 7,6,2,12)])
 
 taxa$`TAXA LÍQUIDA` <- round(taxa$`TAXA LÍQUIDA`,2)
 
 # Distribuídos
 
-distribuidos <- read_excel("Distribuições - Atualizado em 2020-08-24 09-05-37.xls") ####
+distribuidos <- read_excel("Distribuições - Atualizado em 2020-09-21 08-01-56.xls") ####
 
 distribuidos <- distribuidos %>%
   mutate(Mes = str_sub(`MÊS DE REFERÊNCIA_TEXTO`, end = 3)%>% str_to_lower())
@@ -465,10 +492,10 @@ fluxo_processual <- rbind(saldo, senteca, baixado, acervo_out)
 
 # Dando a saída dos arquivos
 
-saveRDS(todos, file = "PRODUTIVIDADE/indicadores.rds")
+saveRDS(todos, file = "Produtividade/indicadores.rds")
 
-saveRDS(taxa, file = "PRODUTIVIDADE/taxa.rds")
+saveRDS(taxa, file = "Produtividade/taxa.rds")
 
-saveRDS(distribuidos, file = "PRODUTIVIDADE/distribuidos.rds")
+saveRDS(distribuidos, file = "Produtividade/distribuidos.rds")
 
-saveRDS(fluxo_processual, file = "PRODUTIVIDADE/fluxo_processual.rds")
+saveRDS(fluxo_processual, file = "Produtividade/fluxo_processual.rds")
