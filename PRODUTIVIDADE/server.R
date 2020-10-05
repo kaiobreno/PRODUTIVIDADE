@@ -93,14 +93,14 @@ shinyServer(function(input, output) {
                 inputId = "per",
                 label = h4("Selecione o período:"), 
                 choices = unique(ano()$DATA),
-                selected = unique(ano()$DATA)[c(1, 9)]
+                selected = unique(ano()$DATA)[c(1, 10)]
             )
         } else {
             sliderTextInput(
                 inputId = "per",
                 label = h4("Selecione o período:"), 
                 choices = unique(ano()$DATA),
-                selected = unique(ano()$DATA)[c(1, 9)]
+                selected = unique(ano()$DATA)[c(1, 10)]
             )
         }
         
