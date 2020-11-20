@@ -300,7 +300,7 @@ for (i in 1:nrow(taxa)) {
 taxa <- taxa %>% mutate(mes_ano = paste(mes, str_sub(ANO, start = 3), sep = "/"))
 
 # Mudar a ordem quando acrescentar um mês
-taxa$mes_ano <- factor(taxa$mes_ano, levels(as.factor(taxa$mes_ano))[c(11, 10, 3, 5, 4, 9, 1, 8, 7,6,2,12)])
+taxa$mes_ano <- factor(taxa$mes_ano, levels(as.factor(taxa$mes_ano))[c(10, 3, 5, 4, 9, 1, 8, 7,6,2,12,11)])
 
 taxa$`TAXA LÍQUIDA` <- round(taxa$`TAXA LÍQUIDA`,2)
 
