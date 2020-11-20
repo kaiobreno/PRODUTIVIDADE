@@ -225,7 +225,7 @@ names(acervo)[24] <- "out2"
 
 # acrescentando novembro ao acervo 
 
-acervo_novembro_20 <- read_excel("Acervo - Atualizado em 2020-11-16 08-00-24.xls") ###
+acervo_novembro_20 <- read_excel("Acervo - Atualizado em 2020-11-09 08-00-21.xls") ###
 
 acervo_novembro_20$UNIDADE[which(acervo_novembro_20$UNIDADE %in%
                                   c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
