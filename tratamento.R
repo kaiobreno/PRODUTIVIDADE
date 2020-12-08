@@ -275,10 +275,10 @@ names(acervo)[26] <- "dez2"
 
 # Preparando todo o acervo
 
-acervo <- acervo %>% gather("MÊS", "ACERVO", 3:25)
+acervo <- acervo %>% gather("MÊS", "ACERVO", 3:26)
 
 for(i in 1:dim(acervo)[1]){
-  if(acervo$MÊS[i] %in% c("jan2", "fev2", "mar2", "abr2", "mai2", "jun2", "jul2", "ago2","set2","out2", "nov2")){acervo$ANO[i] <- 2020
+  if(acervo$MÊS[i] %in% c("jan2", "fev2", "mar2", "abr2", "mai2", "jun2", "jul2", "ago2","set2","out2", "nov2", "dez2")){acervo$ANO[i] <- 2020
   } else{acervo$ANO[i] <- 2019}
 }
 
@@ -294,7 +294,7 @@ for(i in 1:dim(acervo)[1]){
   } else if(acervo$MÊS[i] == "set2"){acervo$MÊS[i] <- "set"
   } else if(acervo$MÊS[i] == "out2"){acervo$MÊS[i] <- "out"
   } else if(acervo$MÊS[i] == "nov2"){acervo$MÊS[i] <- "nov"
-  } else if(acervo$MÊS[i] == "nov2"){acervo$MÊS[i] <- "nov"
+  } else if(acervo$MÊS[i] == "dez2"){acervo$MÊS[i] <- "dez"
    }
 }
 
