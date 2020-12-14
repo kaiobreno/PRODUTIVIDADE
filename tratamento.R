@@ -10,7 +10,7 @@ dados_atu <- read_excel("Indicadores - Atualizado em 2020-07-29 08-04-55.xls")
 
 dados_atu <- dados_atu %>% filter(str_detect(`MÊS DE REFERÊNCIA`,pattern = "20$")==FALSE)
 
-dados_2020 <- read_excel("Indicadores - Atualizado em 2020-12-07 08-01-16.xls") ####
+dados_2020 <- read_excel("Indicadores - Atualizado em 2020-12-14 08-02-01.xls") ####
 
 dados_atu <- rbind(dados_atu, dados_2020)
 
@@ -152,19 +152,19 @@ names(acervo)[21] <- "jul2"
 acervo_agosto_20 <- read_excel("Acervo - Atualizado em 2020-08-31 08-00-21.xls") 
 
 acervo_agosto_20$UNIDADE[which(acervo_agosto_20$UNIDADE %in%
-                                c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
+                                 c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
   "NATAL - JUIZADO ESPECIAL CRIMINAL CENTRAL"
 
 acervo_agosto_20$UNIDADE[which(acervo_agosto_20$UNIDADE %in%
-                                c("NATAL - 14º JUIZADO ESPECIAL CÍVEL"))] <-
+                                 c("NATAL - 14º JUIZADO ESPECIAL CÍVEL"))] <-
   "NATAL - 14º JUIZADO ESPECIAL CÍVEL CENTRAL"
 
 acervo_agosto_20$UNIDADE[which(acervo_agosto_20$UNIDADE %in%
-                                c("NATAL - 15º JUIZADO ESPECIAL CÍVEL"))] <-
+                                 c("NATAL - 15º JUIZADO ESPECIAL CÍVEL"))] <-
   "NATAL - 15º JUIZADO ESPECIAL CÍVEL CENTRAL"
 
 acervo_agosto_20$UNIDADE[which(acervo_agosto_20$UNIDADE %in%
-                                c("NATAL - 16º JUIZADO ESPECIAL CÍVEL"))] <-
+                                 c("NATAL - 16º JUIZADO ESPECIAL CÍVEL"))] <-
   "NATAL - 16º JUIZADO ESPECIAL CÍVEL CENTRAL"
 
 acervo <- left_join(acervo, acervo_agosto_20[,c(1,4)], by = c("Comarca - Unidade" = "UNIDADE"))
@@ -177,19 +177,19 @@ names(acervo)[22] <- "ago2"
 acervo_setembro_20 <- read_excel("Acervo - Atualizado em 2020-09-28 08-00-22.xls") 
 
 acervo_setembro_20$UNIDADE[which(acervo_setembro_20$UNIDADE %in%
-                                 c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
+                                   c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
   "NATAL - JUIZADO ESPECIAL CRIMINAL CENTRAL"
 
 acervo_setembro_20$UNIDADE[which(acervo_setembro_20$UNIDADE %in%
-                                 c("NATAL - 14º JUIZADO ESPECIAL CÍVEL"))] <-
+                                   c("NATAL - 14º JUIZADO ESPECIAL CÍVEL"))] <-
   "NATAL - 14º JUIZADO ESPECIAL CÍVEL CENTRAL"
 
 acervo_setembro_20$UNIDADE[which(acervo_setembro_20$UNIDADE %in%
-                                 c("NATAL - 15º JUIZADO ESPECIAL CÍVEL"))] <-
+                                   c("NATAL - 15º JUIZADO ESPECIAL CÍVEL"))] <-
   "NATAL - 15º JUIZADO ESPECIAL CÍVEL CENTRAL"
 
 acervo_setembro_20$UNIDADE[which(acervo_setembro_20$UNIDADE %in%
-                                 c("NATAL - 16º JUIZADO ESPECIAL CÍVEL"))] <-
+                                   c("NATAL - 16º JUIZADO ESPECIAL CÍVEL"))] <-
   "NATAL - 16º JUIZADO ESPECIAL CÍVEL CENTRAL"
 
 acervo <- left_join(acervo, acervo_setembro_20[,c(1,4)], by = c("Comarca - Unidade" = "UNIDADE"))
@@ -203,19 +203,19 @@ names(acervo)[23] <- "set2"
 acervo_outubro_20 <- read_excel("Acervo - Atualizado em 2020-10-26 08-00-22.xls") ###
 
 acervo_outubro_20$UNIDADE[which(acervo_outubro_20$UNIDADE %in%
-                                   c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
+                                  c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
   "NATAL - JUIZADO ESPECIAL CRIMINAL CENTRAL"
 
 acervo_outubro_20$UNIDADE[which(acervo_outubro_20$UNIDADE %in%
-                                   c("NATAL - 14º JUIZADO ESPECIAL CÍVEL"))] <-
+                                  c("NATAL - 14º JUIZADO ESPECIAL CÍVEL"))] <-
   "NATAL - 14º JUIZADO ESPECIAL CÍVEL CENTRAL"
 
 acervo_outubro_20$UNIDADE[which(acervo_outubro_20$UNIDADE %in%
-                                   c("NATAL - 15º JUIZADO ESPECIAL CÍVEL"))] <-
+                                  c("NATAL - 15º JUIZADO ESPECIAL CÍVEL"))] <-
   "NATAL - 15º JUIZADO ESPECIAL CÍVEL CENTRAL"
 
 acervo_outubro_20$UNIDADE[which(acervo_outubro_20$UNIDADE %in%
-                                   c("NATAL - 16º JUIZADO ESPECIAL CÍVEL"))] <-
+                                  c("NATAL - 16º JUIZADO ESPECIAL CÍVEL"))] <-
   "NATAL - 16º JUIZADO ESPECIAL CÍVEL CENTRAL"
 
 acervo <- left_join(acervo, acervo_outubro_20[,c(1,4)], by = c("Comarca - Unidade" = "UNIDADE"))
@@ -228,19 +228,19 @@ names(acervo)[24] <- "out2"
 acervo_novembro_20 <- read_excel("Acervo - Atualizado em 2020-11-30 08-00-20.xls") ###
 
 acervo_novembro_20$UNIDADE[which(acervo_novembro_20$UNIDADE %in%
-                                  c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
+                                   c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
   "NATAL - JUIZADO ESPECIAL CRIMINAL CENTRAL"
 
 acervo_novembro_20$UNIDADE[which(acervo_novembro_20$UNIDADE %in%
-                                  c("NATAL - 14º JUIZADO ESPECIAL CÍVEL"))] <-
+                                   c("NATAL - 14º JUIZADO ESPECIAL CÍVEL"))] <-
   "NATAL - 14º JUIZADO ESPECIAL CÍVEL CENTRAL"
 
 acervo_novembro_20$UNIDADE[which(acervo_novembro_20$UNIDADE %in%
-                                  c("NATAL - 15º JUIZADO ESPECIAL CÍVEL"))] <-
+                                   c("NATAL - 15º JUIZADO ESPECIAL CÍVEL"))] <-
   "NATAL - 15º JUIZADO ESPECIAL CÍVEL CENTRAL"
 
 acervo_novembro_20$UNIDADE[which(acervo_novembro_20$UNIDADE %in%
-                                  c("NATAL - 16º JUIZADO ESPECIAL CÍVEL"))] <-
+                                   c("NATAL - 16º JUIZADO ESPECIAL CÍVEL"))] <-
   "NATAL - 16º JUIZADO ESPECIAL CÍVEL CENTRAL"
 
 acervo <- left_join(acervo, acervo_novembro_20[,c(1,4)], by = c("Comarca - Unidade" = "UNIDADE"))
@@ -251,7 +251,7 @@ names(acervo)[25] <- "nov2"
 
 # acrescentando dezembro ao acervo 
 
-acervo_dezembro_20 <- read_excel("Acervo - Atualizado em 2020-11-30 08-00-20.xls") ###
+acervo_dezembro_20 <- read_excel("Acervo - Atualizado em 2020-12-14 08-00-20.xls") ###
 
 acervo_dezembro_20$UNIDADE[which(acervo_dezembro_20$UNIDADE %in%
                                    c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
@@ -295,7 +295,7 @@ for(i in 1:dim(acervo)[1]){
   } else if(acervo$MÊS[i] == "out2"){acervo$MÊS[i] <- "out"
   } else if(acervo$MÊS[i] == "nov2"){acervo$MÊS[i] <- "nov"
   } else if(acervo$MÊS[i] == "dez2"){acervo$MÊS[i] <- "dez"
-   }
+  }
 }
 
 acervo$MÊS <- factor(acervo$MÊS, levels(as.factor(acervo$MÊS))[c(5, 4, 9, 1, 8, 7, 6, 2, 12, 11, 10, 3)])
@@ -305,7 +305,7 @@ todos <- left_join(dados_atu, acervo, by = c("UNIDADE" = "Comarca - Unidade", "D
 
 # Taxa de congestionamento
 
-taxa <- read_excel("Taxa de congestionamento - Atualizado em  2020-12-07 08-00-21.xls") ###
+taxa <- read_excel("Taxa de congestionamento - Atualizado em  2020-12-14 08-00-19.xls") ###
 
 for (i in 1:nrow(taxa)) {
   if (taxa$MÊS[i] == 1) {taxa$mes[i] <- "jan"}
@@ -331,7 +331,7 @@ taxa$`TAXA LÍQUIDA` <- round(taxa$`TAXA LÍQUIDA`,2)
 
 # Distribuídos
 
-distribuidos <- read_excel("Distribuições - Atualizado em 2020-12-07 08-01-03.xls") ####
+distribuidos <- read_excel("Distribuições - Atualizado em 2020-12-14 08-01-31.xls") ####
 
 distribuidos <- distribuidos %>%
   mutate(Mes = str_sub(`MÊS DE REFERÊNCIA_TEXTO`, end = 3)%>% str_to_lower())
@@ -343,23 +343,23 @@ distribuidos <- distribuidos %>% mutate(`Distribuição/Redistribuição (Entrad
 distribuidos <- distribuidos %>% gather(Fluxo, quant_fluxo, `Distribuição/Redistribuição (Entradas)`:`Redistribuídos (Saídas)`)
 
 distribuidos$UNIDADE[which(distribuidos$UNIDADE %in%
-                                c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
+                             c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
   "NATAL - JUIZADO ESPECIAL CRIMINAL CENTRAL"
 
 distribuidos$UNIDADE[which(distribuidos$UNIDADE %in%
-                                c("NATAL - 14º JUIZADO ESPECIAL CÍVEL"))] <-
+                             c("NATAL - 14º JUIZADO ESPECIAL CÍVEL"))] <-
   "NATAL - 14º JUIZADO ESPECIAL CÍVEL CENTRAL"
 
 distribuidos$UNIDADE[which(distribuidos$UNIDADE %in%
-                                c("NATAL - 15º JUIZADO ESPECIAL CÍVEL"))] <-
+                             c("NATAL - 15º JUIZADO ESPECIAL CÍVEL"))] <-
   "NATAL - 15º JUIZADO ESPECIAL CÍVEL CENTRAL"
 
 distribuidos$UNIDADE[which(distribuidos$UNIDADE %in%
-                                c("NATAL - 16º JUIZADO ESPECIAL CÍVEL"))] <-
+                             c("NATAL - 16º JUIZADO ESPECIAL CÍVEL"))] <-
   "NATAL - 16º JUIZADO ESPECIAL CÍVEL CENTRAL"
 
 distribuidos <- left_join(distribuidos, todos %>% select(UNIDADE, GRUPO) %>% unique(),
-                  by = c("UNIDADE" = "UNIDADE"))
+                          by = c("UNIDADE" = "UNIDADE"))
 
 distribuidos <- distribuidos %>% filter(is.na(GRUPO.y)==FALSE)
 
@@ -489,60 +489,60 @@ taxa$UNIDADE[which(taxa$UNIDADE %in% c("MOSSORÓ - VARA DO JUIZADO DE VIOLÊNCIA
 # Distribuídos
 
 distribuidos$UNIDADE[which(distribuidos$UNIDADE %in% c("MOSSORÓ - 1º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",             
-                                       "MOSSORÓ - 2º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",             
-                                       "MOSSORÓ - 3º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",             
-                                       "MOSSORÓ - 4º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",             
-                                       "PARNAMIRIM - 1º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",          
-                                       "PARNAMIRIM - 2º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",          
-                                       "PARNAMIRIM - 3º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",          
-                                       "PARNAMIRIM - 4º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",          
-                                       "APODI - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                    
-                                       "AREIA BRANCA - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",             
-                                       "ASSÚ - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                     
-                                       "CAICÓ - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                    
-                                       "CEARÁ-MIRIM - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",              
-                                       "CURRAIS NOVOS - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",            
-                                       "JOÃO CÂMARA - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",              
-                                       "MACAU - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                    
-                                       "MACAÍBA - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                  
-                                       "NOVA CRUZ - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                
-                                       "PAU DOS FERROS - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",
-                                       "SANTA CRUZ - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",
-                                       "SÃO GONÇALO DO AMARANTE - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA"))] <-
+                                                       "MOSSORÓ - 2º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",             
+                                                       "MOSSORÓ - 3º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",             
+                                                       "MOSSORÓ - 4º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",             
+                                                       "PARNAMIRIM - 1º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",          
+                                                       "PARNAMIRIM - 2º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",          
+                                                       "PARNAMIRIM - 3º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",          
+                                                       "PARNAMIRIM - 4º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",          
+                                                       "APODI - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                    
+                                                       "AREIA BRANCA - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",             
+                                                       "ASSÚ - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                     
+                                                       "CAICÓ - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                    
+                                                       "CEARÁ-MIRIM - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",              
+                                                       "CURRAIS NOVOS - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",            
+                                                       "JOÃO CÂMARA - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",              
+                                                       "MACAU - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                    
+                                                       "MACAÍBA - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                  
+                                                       "NOVA CRUZ - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                
+                                                       "PAU DOS FERROS - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",
+                                                       "SANTA CRUZ - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",
+                                                       "SÃO GONÇALO DO AMARANTE - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA"))] <-
   str_replace_all(distribuidos$UNIDADE[which(distribuidos$UNIDADE %in% c("MOSSORÓ - 1º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",             
-                                                         "MOSSORÓ - 2º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",             
-                                                         "MOSSORÓ - 3º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",             
-                                                         "MOSSORÓ - 4º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",             
-                                                         "PARNAMIRIM - 1º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",          
-                                                         "PARNAMIRIM - 2º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",          
-                                                         "PARNAMIRIM - 3º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",          
-                                                         "PARNAMIRIM - 4º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",          
-                                                         "APODI - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                    
-                                                         "AREIA BRANCA - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",             
-                                                         "ASSÚ - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                     
-                                                         "CAICÓ - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                    
-                                                         "CEARÁ-MIRIM - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",              
-                                                         "CURRAIS NOVOS - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",            
-                                                         "JOÃO CÂMARA - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",              
-                                                         "MACAU - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                    
-                                                         "MACAÍBA - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                  
-                                                         "NOVA CRUZ - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                
-                                                         "PAU DOS FERROS - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",
-                                                         "SANTA CRUZ - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",
-                                                         "SÃO GONÇALO DO AMARANTE - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA"))],
+                                                                         "MOSSORÓ - 2º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",             
+                                                                         "MOSSORÓ - 3º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",             
+                                                                         "MOSSORÓ - 4º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",             
+                                                                         "PARNAMIRIM - 1º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",          
+                                                                         "PARNAMIRIM - 2º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",          
+                                                                         "PARNAMIRIM - 3º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",          
+                                                                         "PARNAMIRIM - 4º JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",          
+                                                                         "APODI - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                    
+                                                                         "AREIA BRANCA - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",             
+                                                                         "ASSÚ - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                     
+                                                                         "CAICÓ - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                    
+                                                                         "CEARÁ-MIRIM - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",              
+                                                                         "CURRAIS NOVOS - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",            
+                                                                         "JOÃO CÂMARA - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",              
+                                                                         "MACAU - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                    
+                                                                         "MACAÍBA - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                  
+                                                                         "NOVA CRUZ - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",                
+                                                                         "PAU DOS FERROS - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",
+                                                                         "SANTA CRUZ - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA",
+                                                                         "SÃO GONÇALO DO AMARANTE - JUIZADO ESPECIAL CÍVEL, CRIMINAL E DA FAZENDA PÚBLICA"))],
                   pattern = ", ",
                   replacement =",\n")
 
 distribuidos$UNIDADE[which(distribuidos$UNIDADE %in% c("MOSSORÓ - VARA DO JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER",     
-                                       "NATAL - 1º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER",            
-                                       "NATAL - 2º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER",            
-                                       "NATAL - 3º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER",            
-                                       "PARNAMIRIM - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER"))] <- 
+                                                       "NATAL - 1º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER",            
+                                                       "NATAL - 2º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER",            
+                                                       "NATAL - 3º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER",            
+                                                       "PARNAMIRIM - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER"))] <- 
   str_replace_all(distribuidos$UNIDADE[which(distribuidos$UNIDADE %in% c("MOSSORÓ - VARA DO JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER",     
-                                                         "NATAL - 1º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER",            
-                                                         "NATAL - 2º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER",            
-                                                         "NATAL - 3º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER",            
-                                                         "PARNAMIRIM - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER"))],
+                                                                         "NATAL - 1º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER",            
+                                                                         "NATAL - 2º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER",            
+                                                                         "NATAL - 3º JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER",            
+                                                                         "PARNAMIRIM - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER"))],
                   pattern = " E ",
                   replacement = "\nE ")
 
