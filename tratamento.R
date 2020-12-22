@@ -6,11 +6,14 @@ library(tidyr)
 
 rm(list = ls())
 
+git config --tratamento user.email "kainho424@gmail.com"
+git config --tratamento user.name "kaiobreno424"
+
 dados_atu <- read_excel("Indicadores - Atualizado em 2020-07-29 08-04-55.xls")
 
 dados_atu <- dados_atu %>% filter(str_detect(`MÊS DE REFERÊNCIA`,pattern = "20$")==FALSE)
 
-dados_2020 <- read_excel("Indicadores - Atualizado em 2020-12-14 08-02-01.xls") ####
+dados_2020 <- read_excel("Indicadores - Atualizado em 2020-12-21 08-00-45.xls") ####
 
 dados_atu <- rbind(dados_atu, dados_2020)
 
@@ -251,7 +254,7 @@ names(acervo)[25] <- "nov2"
 
 # acrescentando dezembro ao acervo 
 
-acervo_dezembro_20 <- read_excel("Acervo - Atualizado em 2020-12-14 08-00-20.xls") ###
+acervo_dezembro_20 <- read_excel("Acervo - Atualizado em 2020-12-21 08-00-21.xls") ###
 
 acervo_dezembro_20$UNIDADE[which(acervo_dezembro_20$UNIDADE %in%
                                    c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
@@ -305,7 +308,7 @@ todos <- left_join(dados_atu, acervo, by = c("UNIDADE" = "Comarca - Unidade", "D
 
 # Taxa de congestionamento
 
-taxa <- read_excel("Taxa de congestionamento - Atualizado em  2020-12-14 08-00-19.xls") ###
+taxa <- read_excel("Taxa de congestionamento - Atualizado em  2020-12-21 08-00-21.xls") ###
 
 for (i in 1:nrow(taxa)) {
   if (taxa$MÊS[i] == 1) {taxa$mes[i] <- "jan"}
@@ -325,13 +328,13 @@ for (i in 1:nrow(taxa)) {
 taxa <- taxa %>% mutate(mes_ano = paste(mes, str_sub(ANO, start = 3), sep = "/"))
 
 # Mudar a ordem quando acrescentar um mês
-taxa$mes_ano <- factor(taxa$mes_ano, levels(as.factor(taxa$mes_ano))[c(3, 5, 4, 9, 1, 8, 7,6,2,12,11,10)])
+taxa$mes_ano <- factor(taxa$mes_ano, levels(as.factor(taxa$mes_ano))[c(5, 4, 9, 1, 8, 7,6,2,12,11,10,3)])
 
 taxa$`TAXA LÍQUIDA` <- round(taxa$`TAXA LÍQUIDA`,2)
 
 # Distribuídos
 
-distribuidos <- read_excel("Distribuições - Atualizado em 2020-12-14 08-01-31.xls") ####
+distribuidos <- read_excel("Distribuições - Atualizado em 2020-12-21 08-00-41.xls") ####
 
 distribuidos <- distribuidos %>%
   mutate(Mes = str_sub(`MÊS DE REFERÊNCIA_TEXTO`, end = 3)%>% str_to_lower())

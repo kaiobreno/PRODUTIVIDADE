@@ -16,6 +16,7 @@ library(ggthemes)
 library(stringr)
 
 
+
 dados <- readRDS("indicadores.rds")
 
 duplicados <- duplicated(dados,fromLast = TRUE)
@@ -335,29 +336,18 @@ shinyServer(function(input, output) {
       } else if(input$per_taxa[1]=="set/20" & input$per_taxa[2]=="set/20"){grupo_taxa() %>% filter(mes_ano %in% c("set/20"))
       } else if(input$per_taxa[1]=="out/20" & input$per_taxa[2]=="out/20"){grupo_taxa() %>% filter(mes_ano %in% c("out/20"))
       } else if(input$per_taxa[1]=="nov/20" & input$per_taxa[2]=="nov/20"){grupo_taxa() %>% filter(mes_ano %in% c("nov/20"))
-      } else if(input$per_taxa[1]=="dez/19" & input$per_taxa[2]=="dez/19"){grupo_taxa() %>% filter(mes_ano %in% c("dez/19"))
-      #} else if(input$per_taxa[1]%in%c("nov/19", "dez/19") & input$per_taxa[2]%in%c("nov/19", "dez/19")){grupo_taxa() %>% filter(mes_ano %in% c("nov/19","dez/19"))     
-      #} else if(input$per_taxa[1]%in%c("nov/19", "jan/20") & input$per_taxa[2]%in%c("nov/19", "jan/20")){grupo_taxa() %>% filter(mes_ano %in% c("nov/19","dez/19","jan/20"))    
-      #} else if(input$per_taxa[1]%in%c("nov/19", "fev/20") & input$per_taxa[2]%in%c("nov/19", "fev/20")){grupo_taxa() %>% filter(mes_ano %in% c("nov/19","dez/19","jan/20","fev/20"))   
-      #} else if(input$per_taxa[1]%in%c("nov/19", "mar/20") & input$per_taxa[2]%in%c("nov/19", "mar/20")){grupo_taxa() %>% filter(mes_ano %in% c("nov/19","dez/19","jan/20","fev/20","mar/20")) 
-      #} else if(input$per_taxa[1]%in%c("nov/19", "abr/20") & input$per_taxa[2]%in%c("nov/19", "abr/20")){grupo_taxa() %>% filter(mes_ano %in% c("nov/19","dez/19","jan/20","fev/20","mar/20","abr/20"))
-      #} else if(input$per_taxa[1]%in%c("nov/19", "mai/20") & input$per_taxa[2]%in%c("nov/19", "mai/20")){grupo_taxa() %>% filter(mes_ano %in% c("nov/19","dez/19","jan/20","fev/20","mar/20","abr/20","mai/20"))
-      #} else if(input$per_taxa[1]%in%c("nov/19", "jun/20") & input$per_taxa[2]%in%c("nov/19", "jun/20")){grupo_taxa() %>% filter(mes_ano %in% c("nov/19","dez/19","jan/20","fev/20","mar/20","abr/20","mai/20","jun/20"))
-      #} else if(input$per_taxa[1]%in%c("nov/19", "jul/20") & input$per_taxa[2]%in%c("nov/19", "jul/20")){grupo_taxa() %>% filter(mes_ano %in% c("nov/19","dez/19","jan/20","fev/20","mar/20","abr/20","mai/20","jun/20","jul/20"))#
-      #} else if(input$per_taxa[1]%in%c("nov/19", "ago/20") & input$per_taxa[2]%in%c("nov/19", "ago/20")){grupo_taxa() %>% filter(mes_ano %in% c("nov/19","dez/19","jan/20","fev/20","mar/20","abr/20","mai/20","jun/20","jul/20","ago/20"))#
-      #} else if(input$per_taxa[1]%in%c("nov/19", "set/20") & input$per_taxa[2]%in%c("nov/19", "set/20")){grupo_taxa() %>% filter(mes_ano %in% c("nov/19","dez/19","jan/20","fev/20","mar/20","abr/20","mai/20","jun/20","jul/20","ago/20", "set/20"))#
-      #} else if(input$per_taxa[1]%in%c("nov/19", "out/20") & input$per_taxa[2]%in%c("nov/19", "out/20")){grupo_taxa() %>% filter(mes_ano %in% c("nov/19","dez/19","jan/20","fev/20","mar/20","abr/20","mai/20","jun/20","jul/20","ago/20", "set/20", "out/20"))#
-      } else if(input$per_taxa[1]%in%c("dez/19", "jan/20") & input$per_taxa[2]%in%c("dez/19", "jan/20")){grupo_taxa() %>% filter(mes_ano %in% c("dez/19","jan/20"))
-      } else if(input$per_taxa[1]%in%c("dez/19", "fev/20") & input$per_taxa[2]%in%c("dez/19", "fev/20")){grupo_taxa() %>% filter(mes_ano %in% c("dez/19","jan/20","fev/20"))
-      } else if(input$per_taxa[1]%in%c("dez/19", "mar/20") & input$per_taxa[2]%in%c("dez/19", "mar/20")){grupo_taxa() %>% filter(mes_ano %in% c("dez/19","jan/20","fev/20","mar/20"))
-      } else if(input$per_taxa[1]%in%c("dez/19", "abr/20") & input$per_taxa[2]%in%c("dez/19", "abr/20")){grupo_taxa() %>% filter(mes_ano %in% c("dez/19","jan/20","fev/20","mar/20","abr/20"))
-      } else if(input$per_taxa[1]%in%c("dez/19", "mai/20") & input$per_taxa[2]%in%c("dez/19", "mai/20")){grupo_taxa() %>% filter(mes_ano %in% c("dez/19","jan/20","fev/20","mar/20","abr/20","mai/20"))
-      } else if(input$per_taxa[1]%in%c("dez/19", "jun/20") & input$per_taxa[2]%in%c("dez/19", "jun/20")){grupo_taxa() %>% filter(mes_ano %in% c("dez/19","jan/20","fev/20","mar/20","abr/20","mai/20","jun/20"))
-      } else if(input$per_taxa[1]%in%c("dez/19", "jul/20") & input$per_taxa[2]%in%c("dez/19", "jul/20")){grupo_taxa() %>% filter(mes_ano %in% c("dez/19","jan/20","fev/20","mar/20","abr/20","mai/20","jun/20","jul/20"))#
-      } else if(input$per_taxa[1]%in%c("dez/19", "ago/20") & input$per_taxa[2]%in%c("dez/19", "ago/20")){grupo_taxa() %>% filter(mes_ano %in% c("dez/19","jan/20","fev/20","mar/20","abr/20","mai/20","jun/20","jul/20","ago/20"))#
-      } else if(input$per_taxa[1]%in%c("dez/19", "set/20") & input$per_taxa[2]%in%c("dez/19", "set/20")){grupo_taxa() %>% filter(mes_ano %in% c("dez/19","jan/20","fev/20","mar/20","abr/20","mai/20","jun/20","jul/20","ago/20", "set/20"))#
-      } else if(input$per_taxa[1]%in%c("dez/19", "out/20") & input$per_taxa[2]%in%c("dez/19", "out/20")){grupo_taxa() %>% filter(mes_ano %in% c("dez/19","jan/20","fev/20","mar/20","abr/20","mai/20","jun/20","jul/20","ago/20", "set/20","out/20"))#
-      } else if(input$per_taxa[1]%in%c("dez/19", "nov/20") & input$per_taxa[2]%in%c("dez/19", "nov/20")){grupo_taxa() %>% filter(mes_ano %in% c("dez/19","jan/20","fev/20","mar/20","abr/20","mai/20","jun/20","jul/20","ago/20", "set/20","out/20","nov/20"))#
+      } else if(input$per_taxa[1]=="dez/20" & input$per_taxa[2]=="dez/20"){grupo_taxa() %>% filter(mes_ano %in% c("dez/20"))
+      #} else if(input$per_taxa[1]%in%c("dez/19", "jan/20") & input$per_taxa[2]%in%c("dez/19", "jan/20")){grupo_taxa() %>% filter(mes_ano %in% c("dez/19","jan/20"))
+      #} else if(input$per_taxa[1]%in%c("dez/19", "fev/20") & input$per_taxa[2]%in%c("dez/19", "fev/20")){grupo_taxa() %>% filter(mes_ano %in% c("dez/19","jan/20","fev/20"))
+      #} else if(input$per_taxa[1]%in%c("dez/19", "mar/20") & input$per_taxa[2]%in%c("dez/19", "mar/20")){grupo_taxa() %>% filter(mes_ano %in% c("dez/19","jan/20","fev/20","mar/20"))
+      #} else if(input$per_taxa[1]%in%c("dez/19", "abr/20") & input$per_taxa[2]%in%c("dez/19", "abr/20")){grupo_taxa() %>% filter(mes_ano %in% c("dez/19","jan/20","fev/20","mar/20","abr/20"))
+      #} else if(input$per_taxa[1]%in%c("dez/19", "mai/20") & input$per_taxa[2]%in%c("dez/19", "mai/20")){grupo_taxa() %>% filter(mes_ano %in% c("dez/19","jan/20","fev/20","mar/20","abr/20","mai/20"))
+      #} else if(input$per_taxa[1]%in%c("dez/19", "jun/20") & input$per_taxa[2]%in%c("dez/19", "jun/20")){grupo_taxa() %>% filter(mes_ano %in% c("dez/19","jan/20","fev/20","mar/20","abr/20","mai/20","jun/20"))
+      #} else if(input$per_taxa[1]%in%c("dez/19", "jul/20") & input$per_taxa[2]%in%c("dez/19", "jul/20")){grupo_taxa() %>% filter(mes_ano %in% c("dez/19","jan/20","fev/20","mar/20","abr/20","mai/20","jun/20","jul/20"))#
+      #} else if(input$per_taxa[1]%in%c("dez/19", "ago/20") & input$per_taxa[2]%in%c("dez/19", "ago/20")){grupo_taxa() %>% filter(mes_ano %in% c("dez/19","jan/20","fev/20","mar/20","abr/20","mai/20","jun/20","jul/20","ago/20"))#
+      #} else if(input$per_taxa[1]%in%c("dez/19", "set/20") & input$per_taxa[2]%in%c("dez/19", "set/20")){grupo_taxa() %>% filter(mes_ano %in% c("dez/19","jan/20","fev/20","mar/20","abr/20","mai/20","jun/20","jul/20","ago/20", "set/20"))#
+      #} else if(input$per_taxa[1]%in%c("dez/19", "out/20") & input$per_taxa[2]%in%c("dez/19", "out/20")){grupo_taxa() %>% filter(mes_ano %in% c("dez/19","jan/20","fev/20","mar/20","abr/20","mai/20","jun/20","jul/20","ago/20", "set/20","out/20"))#
+      #} else if(input$per_taxa[1]%in%c("dez/19", "nov/20") & input$per_taxa[2]%in%c("dez/19", "nov/20")){grupo_taxa() %>% filter(mes_ano %in% c("dez/19","jan/20","fev/20","mar/20","abr/20","mai/20","jun/20","jul/20","ago/20", "set/20","out/20","nov/20"))#
       } else if(input$per_taxa[1]%in%c("jan/20", "fev/20") & input$per_taxa[2]%in%c("jan/20", "fev/20")){grupo_taxa() %>% filter(mes_ano %in% c("jan/20","fev/20"))
       } else if(input$per_taxa[1]%in%c("jan/20", "mar/20") & input$per_taxa[2]%in%c("jan/20", "mar/20")){grupo_taxa() %>% filter(mes_ano %in% c("jan/20","fev/20","mar/20"))
       } else if(input$per_taxa[1]%in%c("jan/20", "abr/20") & input$per_taxa[2]%in%c("jan/20", "abr/20")){grupo_taxa() %>% filter(mes_ano %in% c("jan/20","fev/20","mar/20","abr/20"))
@@ -368,6 +358,7 @@ shinyServer(function(input, output) {
       } else if(input$per_taxa[1]%in%c("jan/20", "set/20") & input$per_taxa[2]%in%c("jan/20", "set/20")){grupo_taxa() %>% filter(mes_ano %in% c("jan/20","fev/20","mar/20","abr/20","mai/20","jun/20","jul/20","ago/20", "set/20"))#
       } else if(input$per_taxa[1]%in%c("jan/20", "out/20") & input$per_taxa[2]%in%c("jan/20", "out/20")){grupo_taxa() %>% filter(mes_ano %in% c("jan/20","fev/20","mar/20","abr/20","mai/20","jun/20","jul/20","ago/20", "set/20","out/20"))#
       } else if(input$per_taxa[1]%in%c("jan/20", "nov/20") & input$per_taxa[2]%in%c("jan/20", "nov/20")){grupo_taxa() %>% filter(mes_ano %in% c("jan/20","fev/20","mar/20","abr/20","mai/20","jun/20","jul/20","ago/20", "set/20","out/20","nov/20"))#
+      } else if(input$per_taxa[1]%in%c("jan/20", "dez/20") & input$per_taxa[2]%in%c("jan/20", "dez/20")){grupo_taxa() %>% filter(mes_ano %in% c("jan/20","fev/20","mar/20","abr/20","mai/20","jun/20","jul/20","ago/20", "set/20","out/20","nov/20","dez/20"))#
       } else if(input$per_taxa[1]%in%c("fev/20", "mar/20") & input$per_taxa[2]%in%c("fev/20", "mar/20")){grupo_taxa() %>% filter(mes_ano %in% c("fev/20","mar/20"))
       } else if(input$per_taxa[1]%in%c("fev/20", "abr/20") & input$per_taxa[2]%in%c("fev/20", "abr/20")){grupo_taxa() %>% filter(mes_ano %in% c("fev/20","mar/20","abr/20"))
       } else if(input$per_taxa[1]%in%c("fev/20", "mai/20") & input$per_taxa[2]%in%c("fev/20", "mai/20")){grupo_taxa() %>% filter(mes_ano %in% c("fev/20","mar/20","abr/20","mai/20"))
@@ -377,6 +368,7 @@ shinyServer(function(input, output) {
       } else if(input$per_taxa[1]%in%c("fev/20", "set/20") & input$per_taxa[2]%in%c("fev/20", "set/20")){grupo_taxa() %>% filter(mes_ano %in% c("fev/20","mar/20","abr/20","mai/20","jun/20","jul/20","ago/20", "set/20"))#
       } else if(input$per_taxa[1]%in%c("fev/20", "out/20") & input$per_taxa[2]%in%c("fev/20", "out/20")){grupo_taxa() %>% filter(mes_ano %in% c("fev/20","mar/20","abr/20","mai/20","jun/20","jul/20","ago/20", "set/20","out/20"))#
       } else if(input$per_taxa[1]%in%c("fev/20", "nov/20") & input$per_taxa[2]%in%c("fev/20", "nov/20")){grupo_taxa() %>% filter(mes_ano %in% c("fev/20","mar/20","abr/20","mai/20","jun/20","jul/20","ago/20", "set/20","out/20","nov/20"))#
+      } else if(input$per_taxa[1]%in%c("fev/20", "dez/20") & input$per_taxa[2]%in%c("fev/20", "dez/20")){grupo_taxa() %>% filter(mes_ano %in% c("fev/20","mar/20","abr/20","mai/20","jun/20","jul/20","ago/20", "set/20","out/20","nov/20","dez/20"))#
       } else if(input$per_taxa[1]%in%c("mar/20", "abr/20") & input$per_taxa[2]%in%c("mar/20", "abr/20")){grupo_taxa() %>% filter(mes_ano %in% c("mar/20","abr/20"))
       } else if(input$per_taxa[1]%in%c("mar/20", "mai/20") & input$per_taxa[2]%in%c("mar/20", "mai/20")){grupo_taxa() %>% filter(mes_ano %in% c("mar/20","abr/20","mai/20"))
       } else if(input$per_taxa[1]%in%c("mar/20", "jun/20") & input$per_taxa[2]%in%c("mar/20", "jun/20")){grupo_taxa() %>% filter(mes_ano %in% c("mar/20","abr/20","mai/20","jun/20"))
@@ -385,6 +377,7 @@ shinyServer(function(input, output) {
       } else if(input$per_taxa[1]%in%c("mar/20", "set/20") & input$per_taxa[2]%in%c("mar/20", "set/20")){grupo_taxa() %>% filter(mes_ano %in% c("mar/20","abr/20","mai/20","jun/20","jul/20","ago/20", "set/20"))#
       } else if(input$per_taxa[1]%in%c("mar/20", "out/20") & input$per_taxa[2]%in%c("mar/20", "out/20")){grupo_taxa() %>% filter(mes_ano %in% c("mar/20","abr/20","mai/20","jun/20","jul/20","ago/20", "set/20","out/20"))#
       } else if(input$per_taxa[1]%in%c("mar/20", "nov/20") & input$per_taxa[2]%in%c("mar/20", "nov/20")){grupo_taxa() %>% filter(mes_ano %in% c("mar/20","abr/20","mai/20","jun/20","jul/20","ago/20", "set/20","out/20","nov/20"))#
+      } else if(input$per_taxa[1]%in%c("mar/20", "dez/20") & input$per_taxa[2]%in%c("mar/20", "dez/20")){grupo_taxa() %>% filter(mes_ano %in% c("mar/20","abr/20","mai/20","jun/20","jul/20","ago/20", "set/20","out/20","nov/20","dez/20"))#
       } else if(input$per_taxa[1]%in%c("abr/20", "mai/20") & input$per_taxa[2]%in%c("abr/20", "mai/20")){grupo_taxa() %>% filter(mes_ano %in% c("abr/20","mai/20"))
       } else if(input$per_taxa[1]%in%c("abr/20", "jun/20") & input$per_taxa[2]%in%c("abr/20", "jun/20")){grupo_taxa() %>% filter(mes_ano %in% c("abr/20","mai/20","jun/20"))  
       } else if(input$per_taxa[1]%in%c("abr/20", "jul/20") & input$per_taxa[2]%in%c("abr/20", "jul/20")){grupo_taxa() %>% filter(mes_ano %in% c("abr/20","mai/20","jun/20","jul/20"))  #
@@ -392,27 +385,35 @@ shinyServer(function(input, output) {
       } else if(input$per_taxa[1]%in%c("abr/20", "set/20") & input$per_taxa[2]%in%c("abr/20", "set/20")){grupo_taxa() %>% filter(mes_ano %in% c("abr/20","mai/20","jun/20","jul/20","ago/20", "set/20"))#  
       } else if(input$per_taxa[1]%in%c("abr/20", "out/20") & input$per_taxa[2]%in%c("abr/20", "out/20")){grupo_taxa() %>% filter(mes_ano %in% c("abr/20","mai/20","jun/20","jul/20","ago/20", "set/20","out/20"))#  
       } else if(input$per_taxa[1]%in%c("abr/20", "nov/20") & input$per_taxa[2]%in%c("abr/20", "nov/20")){grupo_taxa() %>% filter(mes_ano %in% c("abr/20","mai/20","jun/20","jul/20","ago/20", "set/20","out/20","nov/20"))#  
+      } else if(input$per_taxa[1]%in%c("abr/20", "dez/20") & input$per_taxa[2]%in%c("abr/20", "dez/20")){grupo_taxa() %>% filter(mes_ano %in% c("abr/20","mai/20","jun/20","jul/20","ago/20", "set/20","out/20","nov/20","dez/20"))#  
       } else if(input$per_taxa[1]%in%c("mai/20", "jun/20") & input$per_taxa[2]%in%c("mai/20", "jun/20")){grupo_taxa() %>% filter(mes_ano %in% c("mai/20","jun/20"))
       } else if(input$per_taxa[1]%in%c("mai/20", "jul/20") & input$per_taxa[2]%in%c("mai/20", "jul/20")){grupo_taxa() %>% filter(mes_ano %in% c("mai/20","jun/20","jul/20"))#
       } else if(input$per_taxa[1]%in%c("mai/20", "ago/20") & input$per_taxa[2]%in%c("mai/20", "ago/20")){grupo_taxa() %>% filter(mes_ano %in% c("mai/20","jun/20","jul/20","ago/20"))#
       } else if(input$per_taxa[1]%in%c("mai/20", "set/20") & input$per_taxa[2]%in%c("mai/20", "set/20")){grupo_taxa() %>% filter(mes_ano %in% c("mai/20","jun/20","jul/20","ago/20", "set/20"))#
       } else if(input$per_taxa[1]%in%c("mai/20", "out/20") & input$per_taxa[2]%in%c("mai/20", "out/20")){grupo_taxa() %>% filter(mes_ano %in% c("mai/20","jun/20","jul/20","ago/20", "set/20","out/20"))#
       } else if(input$per_taxa[1]%in%c("mai/20", "nov/20") & input$per_taxa[2]%in%c("mai/20", "nov/20")){grupo_taxa() %>% filter(mes_ano %in% c("mai/20","jun/20","jul/20","ago/20", "set/20","out/20","nov/20"))#
+      } else if(input$per_taxa[1]%in%c("mai/20", "dez/20") & input$per_taxa[2]%in%c("mai/20", "dez/20")){grupo_taxa() %>% filter(mes_ano %in% c("mai/20","jun/20","jul/20","ago/20", "set/20","out/20","nov/20","dez/20"))#
       } else if(input$per_taxa[1]%in%c("jun/20", "jul/20") & input$per_taxa[2]%in%c("jun/20", "jul/20")){grupo_taxa() %>% filter(mes_ano %in% c("jun/20","jul/20"))#
       } else if(input$per_taxa[1]%in%c("jun/20", "ago/20") & input$per_taxa[2]%in%c("jun/20", "ago/20")){grupo_taxa() %>% filter(mes_ano %in% c("jun/20","jul/20","ago/20"))#
       } else if(input$per_taxa[1]%in%c("jun/20", "set/20") & input$per_taxa[2]%in%c("jun/20", "set/20")){grupo_taxa() %>% filter(mes_ano %in% c("jun/20","jul/20","ago/20", "set/20"))#
       } else if(input$per_taxa[1]%in%c("jun/20", "out/20") & input$per_taxa[2]%in%c("jun/20", "out/20")){grupo_taxa() %>% filter(mes_ano %in% c("jun/20","jul/20","ago/20", "set/20","out/20"))#
       } else if(input$per_taxa[1]%in%c("jun/20", "nov/20") & input$per_taxa[2]%in%c("jun/20", "nov/20")){grupo_taxa() %>% filter(mes_ano %in% c("jun/20","jul/20","ago/20", "set/20","out/20","nov/20"))#
+      } else if(input$per_taxa[1]%in%c("jun/20", "dez/20") & input$per_taxa[2]%in%c("jun/20", "dez/20")){grupo_taxa() %>% filter(mes_ano %in% c("jun/20","jul/20","ago/20", "set/20","out/20","nov/20","dez/20"))#
       } else if(input$per_taxa[1]%in%c("jul/20", "ago/20") & input$per_taxa[2]%in%c("jul/20", "ago/20")){grupo_taxa() %>% filter(mes_ano %in% c("jul/20","ago/20"))#
       } else if(input$per_taxa[1]%in%c("jul/20", "set/20") & input$per_taxa[2]%in%c("jul/20", "set/20")){grupo_taxa() %>% filter(mes_ano %in% c("jul/20","ago/20", "set/20"))#
       } else if(input$per_taxa[1]%in%c("jul/20", "out/20") & input$per_taxa[2]%in%c("jul/20", "out/20")){grupo_taxa() %>% filter(mes_ano %in% c("jul/20","ago/20", "set/20","out/20"))#
       } else if(input$per_taxa[1]%in%c("jul/20", "nov/20") & input$per_taxa[2]%in%c("jul/20", "nov/20")){grupo_taxa() %>% filter(mes_ano %in% c("jul/20","ago/20", "set/20","out/20","nov/20"))#
+      } else if(input$per_taxa[1]%in%c("jul/20", "dez/20") & input$per_taxa[2]%in%c("jul/20", "dez/20")){grupo_taxa() %>% filter(mes_ano %in% c("jul/20","ago/20", "set/20","out/20","nov/20","dez/20"))#
       } else if(input$per_taxa[1]%in%c("ago/20", "set/20") & input$per_taxa[2]%in%c("ago/20", "set/20")){grupo_taxa() %>% filter(mes_ano %in% c("ago/20","set/20"))#
       } else if(input$per_taxa[1]%in%c("ago/20", "out/20") & input$per_taxa[2]%in%c("ago/20", "out/20")){grupo_taxa() %>% filter(mes_ano %in% c("ago/20","set/20","out/20"))#
       } else if(input$per_taxa[1]%in%c("ago/20", "nov/20") & input$per_taxa[2]%in%c("ago/20", "nov/20")){grupo_taxa() %>% filter(mes_ano %in% c("ago/20","set/20","out/20","nov/20"))#
+      } else if(input$per_taxa[1]%in%c("ago/20", "dez/20") & input$per_taxa[2]%in%c("ago/20", "dez/20")){grupo_taxa() %>% filter(mes_ano %in% c("ago/20","set/20","out/20","nov/20","dez/20"))#
       } else if(input$per_taxa[1]%in%c("set/20", "out/20") & input$per_taxa[2]%in%c("set/20", "out/20")){grupo_taxa() %>% filter(mes_ano %in% c("set/20","out/20"))#
       } else if(input$per_taxa[1]%in%c("set/20", "nov/20") & input$per_taxa[2]%in%c("set/20", "nov/20")){grupo_taxa() %>% filter(mes_ano %in% c("set/20","out/20","nov/20"))#
+      } else if(input$per_taxa[1]%in%c("set/20", "dez/20") & input$per_taxa[2]%in%c("set/20", "dez/20")){grupo_taxa() %>% filter(mes_ano %in% c("set/20","out/20","nov/20","dez/20"))#
       } else if(input$per_taxa[1]%in%c("out/20", "nov/20") & input$per_taxa[2]%in%c("out/20", "nov/20")){grupo_taxa() %>% filter(mes_ano %in% c("out/20","nov/20"))#
+      } else if(input$per_taxa[1]%in%c("out/20", "dez/20") & input$per_taxa[2]%in%c("out/20", "dez/20")){grupo_taxa() %>% filter(mes_ano %in% c("out/20","nov/20","dez/20"))#
+      } else if(input$per_taxa[1]%in%c("nov/20", "dez/20") & input$per_taxa[2]%in%c("nov/20", "dez/20")){grupo_taxa() %>% filter(mes_ano %in% c("nov/20","dez/20"))#
       }
     })
     
