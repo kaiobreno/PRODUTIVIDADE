@@ -17,6 +17,16 @@ dados_2020 <- read_excel("Indicadores - Atualizado em 2020-12-29 11-14-26.xls") 
 
 dados_2021 <- read_excel("Indicadores - Atualizado em 2021-03-29 15-02-03.xls")
 
+dados_2020 <- dados_2020 %>% select(!GRUPO)
+
+dados_atu <- dados_atu %>% select(!GRUPO)
+
+a <- dados_2021 %>% select(UNIDADE, GRUPO) %>% unique()
+
+dados_2020 <- left_join(dados_2020, a, by =  "UNIDADE")
+
+dados_atu <- left_join(dados_atu, a, by =  "UNIDADE")
+
 dados_atu <- rbind(dados_atu, dados_2020, dados_2021)
 
 dados_atu <- dados_atu %>% select(!ID_UNIDADE)
@@ -663,3 +673,4 @@ saveRDS(taxa, file = "Produtividade/taxa.rds")
 saveRDS(distribuidos, file = "Produtividade/distribuidos.rds")
 
 saveRDS(fluxo_processual, file = "Produtividade/fluxo_processual.rds")
+

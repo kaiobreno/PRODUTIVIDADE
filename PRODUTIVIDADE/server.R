@@ -27,19 +27,6 @@ dados <- dados[!duplicados,]
 
 dados<- dados %>% mutate_all(replace_na, 0)
 
-for (i in 1:dim(dados)[1]){
-  if(dados$GRUPO[i] == 15){
-    dados$GRUPO[i] <- 14
-  } else if (dados$GRUPO[i] == 16){
-    dados$GRUPO[i] <- 15
-  } else if (dados$GRUPO[i] == 17){
-    dados$GRUPO[i] <- 14
-  }else if(dados$GRUPO[i] > 17){
-    dados$GRUPO[i] <- dados$GRUPO[i]- 2
-  }
-  
-}
-
 
 #dados[is.na(dados)] <- 0
 
@@ -49,19 +36,6 @@ taxa <- readRDS("taxa.rds")
 taxa <- taxa[-which(is.na(taxa$'TAXA LÍQUIDA')),]
 
 taxa<- taxa %>% mutate_all(replace_na, 0)
-
-for (i in 1:dim(taxa)[1]){
-  if(taxa$GRUPO[i] == 15){
-    taxa$GRUPO[i] <- 14
-  } else if (taxa$GRUPO[i] == 16){
-    taxa$GRUPO[i] <- 15
-  } else if (taxa$GRUPO[i] == 17){
-    taxa$GRUPO[i] <- 14
-  }else if(taxa$GRUPO[i] > 17){
-    taxa$GRUPO[i] <- taxa$GRUPO[i]- 2
-  }
-  
-}
 
 distribuidos <- readRDS("distribuidos.rds")
 

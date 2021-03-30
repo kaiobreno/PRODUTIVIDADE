@@ -40,8 +40,7 @@ navbarPage("Análise da Produtividade por Competência", collapsible = TRUE,
                                         "GRUPO 19" = 19, "GRUPO 20" = 20, "GRUPO 21" = 21,
                                         "GRUPO 22" = 22, "GRUPO 23" = 23, "GRUPO 24" = 24,
                                         "GRUPO 25" = 25, "GRUPO 26" = 26, "GRUPO 27" = 27,
-                                        "GRUPO 28" = 28, "GRUPO 29" = 29, "GRUPO 30" = 30,
-                                        "GRUPO 31" = 32)),         
+                                        "GRUPO 28" = 28)),         
                      
                      
             pickerInput("indicador",
@@ -95,7 +94,7 @@ navbarPage("Análise da Produtividade por Competência", collapsible = TRUE,
                                                              "GRUPO 19" = 19, "GRUPO 20" = 20, "GRUPO 21" = 21,
                                                              "GRUPO 22" = 22, "GRUPO 23" = 23, "GRUPO 24" = 24,
                                                              "GRUPO 25" = 25, "GRUPO 26" = 26, "GRUPO 27" = 27,
-                                                             "GRUPO 28" = 28, "GRUPO 29" = 29, "GRUPO 30" = 30)),
+                                                             "GRUPO 28" = 28)),
                                   
                                   
                                   uiOutput("periodo_taxa"),
