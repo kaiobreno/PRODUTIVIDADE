@@ -57,7 +57,7 @@ navbarPage("Análise da Produtividade por Competência", collapsible = TRUE,
             
             radioButtons("ano",
                         h4("Selecione o ano:"),
-                        choices = list("2019" = 2019, "2020" = 2020)),
+                        choices = list("2019" = 2019, "2020" = 2020, "2021" = 2021)),
             
             
             uiOutput("periodo"),
@@ -123,7 +123,7 @@ navbarPage("Análise da Produtividade por Competência", collapsible = TRUE,
                                   conditionalPanel(condition = "input.tabselected==1",
                                                    radioButtons("ano_dist",
                                                                 h4("Selecione o ano:"),
-                                                                choices = list("2019" = 2019, "2020" = 2020)),
+                                                                choices = list("2019" = 2019, "2020" = 2020, "2021" = 2021)),
                                                    
                                                    uiOutput("periodo_dist"),
                                                    
@@ -132,7 +132,7 @@ navbarPage("Análise da Produtividade por Competência", collapsible = TRUE,
                                   conditionalPanel(condition = "input.tabselected==2",
                                                    radioButtons("ano_fluxo",
                                                                 h4("Selecione o ano:"),
-                                                                choices = list("2019" = 2019, "2020" = 2020)),
+                                                                choices = list("2019" = 2019, "2020" = 2020, "2021" = 2021)),
                                                    
                                                    uiOutput("periodo_fluxo"),
                                                    
