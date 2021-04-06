@@ -520,7 +520,7 @@ shinyServer(function(input, output) {
                 inputId = "per_fluxo",
                 label = h4("Selecione o período:"), 
                 choices = unique(ano_fluxo()$Mes)[1:4],
-                selected = unique(ano_fluxo()$Mes)[c(1,4)]
+                selected = unique(ano_fluxo()$Mes)[c(1,3)]
               )
             }
         
