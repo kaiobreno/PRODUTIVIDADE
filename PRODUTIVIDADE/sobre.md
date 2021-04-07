@@ -1,11 +1,11 @@
 
-__**Data da última atualização: 30/03/2021 às 12:43**__
+__**Data da última atualização: 05/04/2021 08:04**__
 
 ## Objetivos
 
-O objetivo principal desta aplicação é mensurar a produtividade das Unidades Judiciárias de 1º Grau, analisando os principais Indicadores Gerenciais, tais como: Distribuições processuais, Acervo, total de Baixados, Sentenças, Decisões, Despachos e Audiências, para o período de janeiro de 2019 a data atual. São considerados como períodos de apuração os anos de 2019 (01/01/2019 a 31/12/2019), 2020 (01/01/2020 a 31/12/2020) e 2021 (01/01/2021 a 31/03/2021). 
+O objetivo principal desta aplicação é mensurar a produtividade das Unidades Judiciárias de 1º Grau, analisando os principais Indicadores Gerenciais, tais como: Distribuições processuais, Acervo, total de Baixados, Sentenças, Decisões, Despachos e Audiências, para o período de janeiro de 2019 a data atual. São considerados como períodos de apuração os anos de 2019 (01/01/2019 a 31/12/2019), 2020 (01/01/2020 a 31/12/2020) e 2021 (01/01/2021 a 04/04/2021). 
 
-Para a Taxa de Congestionamento é considerado o período de aberil de 2020 a março de 2021. 
+Para a Taxa de Congestionamento é considerado os últimos 12 meses. 
 
 As análises podem ser feitas considerando grupos de Unidades Jurisdicionais de mesma competência. Neste sentido, será possível identificar, por exemplo, as unidades de cada grupo de competência que necessitam melhorar seus indicadores e auxiliar na elaboração de estratégias que visem manter bons desempenhos na redução de Acervo processual e Taxas de Congestionamento, contribuindo para uma prestação jurisdicional cada vez mais célere.
 
