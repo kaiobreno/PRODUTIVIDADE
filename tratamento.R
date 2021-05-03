@@ -15,7 +15,7 @@ dados_atu <- dados_atu %>% filter(str_detect(`MÊS DE REFERÊNCIA`,pattern = "20
 
 dados_2020 <- read_excel("Indicadores - Atualizado em 2020-12-29 11-14-26.xls") 
 
-dados_2021 <- read_excel("Indicadores - Atualizado em 2021-04-26 08-03-14.xls") ####
+dados_2021 <- read_excel("Indicadores - Atualizado em 2021-05-03 08-02-28.xls") ####
 
 dados_2020 <- dados_2020 %>% select(!GRUPO)
 
@@ -367,7 +367,7 @@ names(acervo)[29] <- "mar3"
 
 # acrescentando abril ao acervo 
 
-acervo_abril_20 <- read_excel("Acervo - Atualizado em 2021-04-26 08-00-22.xls") ###
+acervo_abril_20 <- read_excel("Acervo - Atualizado em 2021-05-01 08-00-25.xls") ###
 
 acervo_abril_20$UNIDADE[which(acervo_abril_20$UNIDADE %in%
                                 c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
@@ -390,13 +390,38 @@ acervo <- left_join(acervo, acervo_abril_20[,c(1,4)], by = c("Comarca - Unidade"
 names(acervo)[30] <- "abr3"
 
 
+# acrescentando maio ao acervo 
+
+acervo_maio_20 <- read_excel("Acervo - Atualizado em 2021-05-03 08-00-25.xls") ###
+
+acervo_maio_20$UNIDADE[which(acervo_maio_20$UNIDADE %in%
+                                c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
+  "NATAL - JUIZADO ESPECIAL CRIMINAL CENTRAL"
+
+acervo_maio_20$UNIDADE[which(acervo_maio_20$UNIDADE %in%
+                                c("NATAL - 14º JUIZADO ESPECIAL CÍVEL"))] <-
+  "NATAL - 14º JUIZADO ESPECIAL CÍVEL CENTRAL"
+
+acervo_maio_20$UNIDADE[which(acervo_maio_20$UNIDADE %in%
+                                c("NATAL - 15º JUIZADO ESPECIAL CÍVEL"))] <-
+  "NATAL - 15º JUIZADO ESPECIAL CÍVEL CENTRAL"
+
+acervo_maio_20$UNIDADE[which(acervo_maio_20$UNIDADE %in%
+                                c("NATAL - 16º JUIZADO ESPECIAL CÍVEL"))] <-
+  "NATAL - 16º JUIZADO ESPECIAL CÍVEL CENTRAL"
+
+acervo <- left_join(acervo, acervo_maio_20[,c(1,4)], by = c("Comarca - Unidade" = "UNIDADE"))
+
+names(acervo)[31] <- "mai3"
+
+
 # Preparando todo o acervo
 
-acervo <- acervo %>% gather("MÊS", "ACERVO", 3:30)
+acervo <- acervo %>% gather("MÊS", "ACERVO", 3:31)
 
 for(i in 1:dim(acervo)[1]){
   if(acervo$MÊS[i] %in% c("jan2", "fev2", "mar2", "abr2", "mai2", "jun2", "jul2", "ago2","set2","out2", "nov2", "dez2")){acervo$ANO[i] <- 2020
-  } else if(acervo$MÊS[i] %in% c("jan3", "fev3", "mar3", "abr3")){acervo$ANO[i] <- 2021
+  } else if(acervo$MÊS[i] %in% c("jan3", "fev3", "mar3", "abr3", "mai3")){acervo$ANO[i] <- 2021
   } else{acervo$ANO[i] <- 2019}
 }
 
@@ -417,6 +442,7 @@ for(i in 1:dim(acervo)[1]){
   } else if(acervo$MÊS[i] == "fev3"){acervo$MÊS[i] <- "fev"
   } else if(acervo$MÊS[i] == "mar3"){acervo$MÊS[i] <- "mar"
   } else if(acervo$MÊS[i] == "abr3"){acervo$MÊS[i] <- "abr"
+  } else if(acervo$MÊS[i] == "mai3"){acervo$MÊS[i] <- "mai"
   }
 }
 
@@ -427,7 +453,7 @@ todos <- left_join(dados_atu, acervo, by = c("UNIDADE" = "Comarca - Unidade", "D
 
 # Taxa de congestionamento
 
-taxa <- read_excel("Taxa de congestionamento - Atualizado em  2021-04-19 08-00-20.xls") ###
+taxa <- read_excel("Taxa de congestionamento - Atualizado em  2021-05-03 08-00-23.xls") ###
 
 for (i in 1:nrow(taxa)) {
   if (taxa$MÊS[i] == 1) {taxa$mes[i] <- "jan"}
@@ -453,7 +479,7 @@ taxa$`TAXA LÍQUIDA` <- round(taxa$`TAXA LÍQUIDA`,2)
 
 # Distribuídos
 
-distribuidos <- read_excel("Distribuições - Atualizado em 2021-04-26 08-02-19.xls") ####
+distribuidos <- read_excel("Distribuições - Atualizado em 2021-05-03 08-02-00.xls") ####
 
 distribuidos <- distribuidos %>%
   mutate(Mes = str_sub(`MÊS DE REFERÊNCIA_TEXTO`, end = 3)%>% str_to_lower())
