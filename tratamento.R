@@ -695,6 +695,14 @@ distribuidos$UNIDADE[which(distribuidos$UNIDADE %in% c("MOSSORÓ - VARA DO JUIZA
                   replacement = "\nE ")
 
 
+#todos$UNIDADE[which(todos$UNIDADE %in%
+#                      c("MOSSORÓ - VARA DO JUIZADO DE VIOLÊNCIA DOMÉSTICA\nE FAMILIAR CONTRA A MULHER"))] <-
+#  "MOSSORÓ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER"
+
+todos[which(todos$UNIDADE == "MOSSORÓ - VARA DO JUIZADO DE VIOLÊNCIA DOMÉSTICA\nE FAMILIAR CONTRA A MULHER"),][,9]<-21
+
+todos[which(todos$UNIDADE == "MOSSORÓ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER"),][,13]<- c(2244,2816,2852,2840,2840)
+
 # Criando o arquivo para a análise de fluxo
 
 saldo <- distribuidos %>% filter(`ANO DE REFERÊNCIA` %in% c(2019, 2020, 2021) & 
@@ -710,9 +718,6 @@ baixado <- todos %>% filter(ANO %in% c(2019, 2020, 2021)) %>%
   select(UNIDADE, ANO, Mes = DATA, valor = BAIXADOS) %>% 
   mutate(Indicador = "BAIXADOS")
 
-todos$UNIDADE<- todos$UNIDADE[which(todos$UNIDADE %in%
-                           c("MOSSORÓ - VARA DO JUIZADO DE VIOLÊNCIA DOMÉSTICA\nE FAMILIAR CONTRA A MULHER"))] <-
-  "MOSSORÓ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER"
 
 acervo_out <- todos %>% filter(ANO %in% c(2019, 2020, 2021)) %>% 
   select(UNIDADE, ANO, Mes = DATA, valor = ACERVO) %>% 
