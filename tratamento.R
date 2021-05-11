@@ -15,7 +15,7 @@ dados_atu <- dados_atu %>% filter(str_detect(`MÊS DE REFERÊNCIA`,pattern = "20
 
 dados_2020 <- read_excel("Indicadores - Atualizado em 2020-12-29 11-14-26.xls") 
 
-dados_2021 <- read_excel("Indicadores - Atualizado em 2021-05-03 08-02-28.xls") ####
+dados_2021 <- read_excel("Indicadores - Atualizado em 2021-05-10 08-05-23.xls") ####
 
 dados_2020 <- dados_2020 %>% select(!GRUPO)
 
@@ -392,7 +392,7 @@ names(acervo)[30] <- "abr3"
 
 # acrescentando maio ao acervo 
 
-acervo_maio_20 <- read_excel("Acervo - Atualizado em 2021-05-03 08-00-25.xls") ###
+acervo_maio_20 <- read_excel("Acervo - Atualizado em 2021-05-10 08-00-24.xls") ###
 
 acervo_maio_20$UNIDADE[which(acervo_maio_20$UNIDADE %in%
                                 c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
@@ -479,7 +479,7 @@ taxa$`TAXA LÍQUIDA` <- round(taxa$`TAXA LÍQUIDA`,2)
 
 # Distribuídos
 
-distribuidos <- read_excel("Distribuições - Atualizado em 2021-05-03 08-02-00.xls") ####
+distribuidos <- read_excel("Distribuições - Atualizado em 2021-05-10 08-02-27.xls") ####
 
 distribuidos <- distribuidos %>%
   mutate(Mes = str_sub(`MÊS DE REFERÊNCIA_TEXTO`, end = 3)%>% str_to_lower())
@@ -701,7 +701,7 @@ distribuidos$UNIDADE[which(distribuidos$UNIDADE %in% c("MOSSORÓ - VARA DO JUIZA
 
 todos[which(todos$UNIDADE == "MOSSORÓ - VARA DO JUIZADO DE VIOLÊNCIA DOMÉSTICA\nE FAMILIAR CONTRA A MULHER"),][,9]<-21
 
-todos[which(todos$UNIDADE == "MOSSORÓ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER"),][,13]<- c(2244,2816,2852,2840,2840)
+todos[which(todos$UNIDADE == "MOSSORÓ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER"),][,13]<- c(2244,2816,2852,2840,2851)
 
 # Criando o arquivo para a análise de fluxo
 
