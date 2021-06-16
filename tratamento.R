@@ -15,7 +15,7 @@ dados_atu <- dados_atu %>% filter(str_detect(`MÊS DE REFERÊNCIA`,pattern = "20
 
 dados_2020 <- read_excel("Indicadores - Atualizado em 2020-12-29 11-14-26.xls") 
 
-dados_2021 <- read_excel("Indicadores - Atualizado em 2021-06-07 08-03-19.xls") ####
+dados_2021 <- read_excel("Indicadores - Atualizado em 2021-06-15 14-36-12.xls") ####
 
 dados_2020 <- dados_2020 %>% select(!GRUPO)
 
@@ -418,7 +418,7 @@ names(acervo)[31] <- "mai3"
 
 # acrescentando junho ao acervo 
 
-acervo_junho_20 <- read_excel("Acervo - Atualizado em 2021-06-07 08-00-26.xls") ###
+acervo_junho_20 <- read_excel("Acervo - Atualizado em 2021-06-15 14-32-28.xls") ###
 
 acervo_junho_20$UNIDADE[which(acervo_junho_20$UNIDADE %in%
                                c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
@@ -480,7 +480,7 @@ todos <- left_join(dados_atu, acervo, by = c("UNIDADE" = "Comarca - Unidade", "D
 
 # Taxa de congestionamento
 
-taxa <- read_excel("Taxa de congestionamento - Atualizado em  2021-06-07 08-00-26.xls") ###
+taxa <- read_excel("Taxa de congestionamento - Atualizado em  2021-06-15 14-32-27.xls") ###
 
 for (i in 1:nrow(taxa)) {
   if (taxa$MÊS[i] == 1) {taxa$mes[i] <- "jan"}
@@ -506,7 +506,7 @@ taxa$`TAXA LÍQUIDA` <- round(taxa$`TAXA LÍQUIDA`,2)
 
 # Distribuídos
 
-distribuidos <- read_excel("Distribuições - Atualizado em 2021-05-31 08-02-11.xls") ####
+distribuidos <- read_excel("Distribuições - Atualizado em 2021-06-15 14-34-51.xls") ####
 
 distribuidos <- distribuidos %>%
   mutate(Mes = str_sub(`MÊS DE REFERÊNCIA_TEXTO`, end = 3)%>% str_to_lower())
@@ -730,7 +730,7 @@ distribuidos$UNIDADE[which(distribuidos$UNIDADE %in% c("MOSSORÓ - VARA DO JUIZA
 
 todos[which(todos$UNIDADE == "MOSSORÓ - VARA DO JUIZADO DE VIOLÊNCIA DOMÉSTICA\nE FAMILIAR CONTRA A MULHER"),][,9]<-21
 
-todos[which(todos$UNIDADE == "MOSSORÓ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER"),][,13]<- c(2244,2816,2852,2840,2873, 2894)
+todos[which(todos$UNIDADE == "MOSSORÓ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER"),][,13]<- c(2244,2816,2852,2840,2873, 2914)
 
 # Criando o arquivo para a análise de fluxo
 
