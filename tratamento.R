@@ -445,6 +445,8 @@ names(acervo)[32] <- "jun3"
 
 acervo <- acervo %>% gather("MÊS", "ACERVO", 3:32)
 
+acervo <- unique(acervo)
+
 for(i in 1:dim(acervo)[1]){
   if(acervo$MÊS[i] %in% c("jan2", "fev2", "mar2", "abr2", "mai2", "jun2", "jul2", "ago2","set2","out2", "nov2", "dez2")){acervo$ANO[i] <- 2020
   } else if(acervo$MÊS[i] %in% c("jan3", "fev3", "mar3", "abr3", "mai3", "jun3")){acervo$ANO[i] <- 2021
@@ -756,11 +758,11 @@ fluxo_processual <- rbind(saldo, senteca, baixado, acervo_out)
 
 # Dando a saída dos arquivos
 
-saveRDS(todos, file = "Produtividade/indicadores.rds")
+saveRDS(todos, file = "PRODUTIVIDADE/indicadores.rds")
 
-saveRDS(taxa, file = "Produtividade/taxa.rds")
+saveRDS(taxa, file = "PRODUTIVIDADE/taxa.rds")
 
-saveRDS(distribuidos, file = "Produtividade/distribuidos.rds")
+saveRDS(distribuidos, file = "PRODUTIVIDADE/distribuidos.rds")
 
-saveRDS(fluxo_processual, file = "Produtividade/fluxo_processual.rds")
+saveRDS(fluxo_processual, file = "PRODUTIVIDADE/fluxo_processual.rds")
 

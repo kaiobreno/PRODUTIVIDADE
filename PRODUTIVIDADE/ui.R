@@ -15,7 +15,7 @@ library(shinycssloaders)
 library(markdown)
 
 # Define UI for application that draws a histogram
-#d
+
 
 navbarPage("Análise da Produtividade por Competência", collapsible = TRUE, 
     tabPanel("Análises dos Indicadores", icon = icon("list-alt"),
