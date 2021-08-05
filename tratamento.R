@@ -15,7 +15,7 @@ dados_atu <- dados_atu %>% filter(str_detect(`MÊS DE REFERÊNCIA`,pattern = "20
 
 dados_2020 <- read_excel("Indicadores - Atualizado em 2020-12-29 11-14-26.xls") 
 
-dados_2021 <- read_excel("Indicadores - Atualizado em 2021-06-15 14-36-12.xls") ####
+dados_2021 <- read_excel("Indicadores - Atualizado em 2021-08-02 08-09-29.xls") ####
 
 dados_2020 <- dados_2020 %>% select(!GRUPO)
 
@@ -418,7 +418,7 @@ names(acervo)[31] <- "mai3"
 
 # acrescentando junho ao acervo 
 
-acervo_junho_20 <- read_excel("Acervo - Atualizado em 2021-06-15 14-32-28.xls") ###
+acervo_junho_20 <- read_excel("Acervo - Atualizado em 2021-07-01 08-00-26.xls") ###
 
 acervo_junho_20$UNIDADE[which(acervo_junho_20$UNIDADE %in%
                                c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
@@ -441,46 +441,148 @@ acervo <- left_join(acervo, acervo_junho_20[,c(1,4)], by = c("Comarca - Unidade"
 names(acervo)[32] <- "jun3"
 
 
+# acrescentando julho ao acervo 
+
+acervo_julho_20 <- read_excel("Acervo - Atualizado em 2021-08-02 08-00-30.xls") ###
+
+acervo_julho_20$UNIDADE[which(acervo_julho_20$UNIDADE %in%
+                                 c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
+  "NATAL - JUIZADO ESPECIAL CRIMINAL CENTRAL"
+
+acervo_julho_20$UNIDADE[which(acervo_julho_20$UNIDADE %in%
+                                 c("NATAL - 14º JUIZADO ESPECIAL CÍVEL"))] <-
+  "NATAL - 14º JUIZADO ESPECIAL CÍVEL CENTRAL"
+
+acervo_julho_20$UNIDADE[which(acervo_julho_20$UNIDADE %in%
+                                 c("NATAL - 15º JUIZADO ESPECIAL CÍVEL"))] <-
+  "NATAL - 15º JUIZADO ESPECIAL CÍVEL CENTRAL"
+
+acervo_julho_20$UNIDADE[which(acervo_julho_20$UNIDADE %in%
+                                 c("NATAL - 16º JUIZADO ESPECIAL CÍVEL"))] <-
+  "NATAL - 16º JUIZADO ESPECIAL CÍVEL CENTRAL"
+
+acervo <- left_join(acervo, acervo_julho_20[,c(1,4)], by = c("Comarca - Unidade" = "UNIDADE"))
+
+names(acervo)[33] <- "jul3"
+
+
+# acrescentando agosto ao acervo 
+
+acervo_agosto_20 <- read_excel("Acervo - Atualizado em 2021-08-02 08-00-30.xls") ###
+
+acervo_agosto_20$UNIDADE[which(acervo_agosto_20$UNIDADE %in%
+                                c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
+  "NATAL - JUIZADO ESPECIAL CRIMINAL CENTRAL"
+
+acervo_agosto_20$UNIDADE[which(acervo_agosto_20$UNIDADE %in%
+                                c("NATAL - 14º JUIZADO ESPECIAL CÍVEL"))] <-
+  "NATAL - 14º JUIZADO ESPECIAL CÍVEL CENTRAL"
+
+acervo_agosto_20$UNIDADE[which(acervo_agosto_20$UNIDADE %in%
+                                c("NATAL - 15º JUIZADO ESPECIAL CÍVEL"))] <-
+  "NATAL - 15º JUIZADO ESPECIAL CÍVEL CENTRAL"
+
+acervo_agosto_20$UNIDADE[which(acervo_agosto_20$UNIDADE %in%
+                                c("NATAL - 16º JUIZADO ESPECIAL CÍVEL"))] <-
+  "NATAL - 16º JUIZADO ESPECIAL CÍVEL CENTRAL"
+
+acervo <- left_join(acervo, acervo_agosto_20[,c(1,4)], by = c("Comarca - Unidade" = "UNIDADE"))
+
+names(acervo)[34] <- "ago3"
+
+
 # Preparando todo o acervo
 
-acervo <- acervo %>% gather("MÊS", "ACERVO", 3:32)
+acervo <- acervo %>% gather("MÊS", "ACERVO", 3:34)
+#aa1<- dim(acervo)[1]
+ano2019<-0
+ano2020<-0
+ano2021<-0
 
-for(i in 1:dim(acervo)[1]){
-  if(acervo$MÊS[i] %in% c("jan2", "fev2", "mar2", "abr2", "mai2", "jun2", "jul2", "ago2","set2","out2", "nov2", "dez2")){acervo$ANO[i] <- 2020
-  } else if(acervo$MÊS[i] %in% c("jan3", "fev3", "mar3", "abr3", "mai3", "jun3")){acervo$ANO[i] <- 2021
-  } else{acervo$ANO[i] <- 2019}
-}
+ano2019[1:(98538*12)] <- 2019
+ano2020[1:(98538*12)] <- 2020
+ano2021[1:(98538*8)] <- 2021  ####################################
 
-for(i in 1:dim(acervo)[1]){
-  if(acervo$MÊS[i] == "jan2"){acervo$MÊS[i] <- "jan"
-  } else if(acervo$MÊS[i] == "fev2"){acervo$MÊS[i] <- "fev"
-  } else if(acervo$MÊS[i] == "mar2"){acervo$MÊS[i] <- "mar"
-  } else if(acervo$MÊS[i] == "abr2"){acervo$MÊS[i] <- "abr"
-  } else if(acervo$MÊS[i] == "mai2"){acervo$MÊS[i] <- "mai"
-  } else if(acervo$MÊS[i] == "jun2"){acervo$MÊS[i] <- "jun"
-  } else if(acervo$MÊS[i] == "jul2"){acervo$MÊS[i] <- "jul"
-  } else if(acervo$MÊS[i] == "ago2"){acervo$MÊS[i] <- "ago"
-  } else if(acervo$MÊS[i] == "set2"){acervo$MÊS[i] <- "set"
-  } else if(acervo$MÊS[i] == "out2"){acervo$MÊS[i] <- "out"
-  } else if(acervo$MÊS[i] == "nov2"){acervo$MÊS[i] <- "nov"
-  } else if(acervo$MÊS[i] == "dez2"){acervo$MÊS[i] <- "dez"
-  } else if(acervo$MÊS[i] == "jan3"){acervo$MÊS[i] <- "jan"
-  } else if(acervo$MÊS[i] == "fev3"){acervo$MÊS[i] <- "fev"
-  } else if(acervo$MÊS[i] == "mar3"){acervo$MÊS[i] <- "mar"
-  } else if(acervo$MÊS[i] == "abr3"){acervo$MÊS[i] <- "abr"
-  } else if(acervo$MÊS[i] == "mai3"){acervo$MÊS[i] <- "mai"
-  } else if(acervo$MÊS[i] == "jun3"){acervo$MÊS[i] <- "jun"
-  }
-}
+acervo$ANO<- c(ano2019,ano2020,ano2021)
+
+
+
+#for(i in 1:aa1){
+#  if(acervo$MÊS[i] %in% c("jan2", "fev2", "mar2", "abr2", "mai2", "jun2", "jul2", "ago2","set2","out2", "nov2", "dez2")){acervo$ANO[i] <- 2020} 
+#  else if(acervo$MÊS[i] %in% c("jan3", "fev3", "mar3", "abr3", "mai3", "jun3", "jul3", "ago3")){acervo$ANO[i] <- 2021} 
+#  else{acervo$ANO[i] <- 2019}
+#  print(i)
+#}
+
+janeiro<-"jan"
+fevereiro<-"fev"
+marco<-"mar"
+abril<-"abr"
+maio<-"mai"
+junho<-"jun"
+julho<-"jul"
+agosto<-"ago"
+setembro<-"set"
+outubro<-"out"
+novembro<-"nov"
+dezembro<-"dez"
+
+
+janeiro[1:98538]<- "jan"
+fevereiro[1:98538]<- "fev"
+marco[1:98538]<- "mar"
+abril[1:98538]<- "abr"
+maio[1:98538]<- "mai"
+junho[1:98538]<- "jun"
+julho[1:98538]<- "jul"
+agosto[1:98538]<- "ago"
+setembro[1:98538]<- "set"
+outubro[1:98538]<- "out"
+novembro[1:98538]<- "nov"
+dezembro[1:98538]<- "dez"
+
+AnoCompleto<- c(janeiro,fevereiro,marco,abril,maio,junho,julho,agosto,setembro,outubro,novembro,dezembro)
+
+
+AnoAtual<-c(janeiro,fevereiro,marco,abril,maio,junho,julho,agosto)  ########################
+
+
+acervo$MÊS <- c(AnoCompleto,AnoCompleto,AnoAtual)
+
+#for(i in 1:dim(acervo)[1]){
+#  if(acervo$MÊS[i] == "jan2"){acervo$MÊS[i] <- "jan"
+#  } else if(acervo$MÊS[i] == "fev2"){acervo$MÊS[i] <- "fev"
+#  } else if(acervo$MÊS[i] == "mar2"){acervo$MÊS[i] <- "mar"
+#  } else if(acervo$MÊS[i] == "abr2"){acervo$MÊS[i] <- "abr"
+#  } else if(acervo$MÊS[i] == "mai2"){acervo$MÊS[i] <- "mai"
+#  } else if(acervo$MÊS[i] == "jun2"){acervo$MÊS[i] <- "jun"
+#  } else if(acervo$MÊS[i] == "jul2"){acervo$MÊS[i] <- "jul"
+#  } else if(acervo$MÊS[i] == "ago2"){acervo$MÊS[i] <- "ago"
+#  } else if(acervo$MÊS[i] == "set2"){acervo$MÊS[i] <- "set"
+#  } else if(acervo$MÊS[i] == "out2"){acervo$MÊS[i] <- "out"
+#  } else if(acervo$MÊS[i] == "nov2"){acervo$MÊS[i] <- "nov"
+#  } else if(acervo$MÊS[i] == "dez2"){acervo$MÊS[i] <- "dez"
+#  } else if(acervo$MÊS[i] == "jan3"){acervo$MÊS[i] <- "jan"
+#  } else if(acervo$MÊS[i] == "fev3"){acervo$MÊS[i] <- "fev"
+#  } else if(acervo$MÊS[i] == "mar3"){acervo$MÊS[i] <- "mar"
+#  } else if(acervo$MÊS[i] == "abr3"){acervo$MÊS[i] <- "abr"
+#  } else if(acervo$MÊS[i] == "mai3"){acervo$MÊS[i] <- "mai"
+#  } else if(acervo$MÊS[i] == "jun3"){acervo$MÊS[i] <- "jun"
+#  } else if(acervo$MÊS[i] == "jul3"){acervo$MÊS[i] <- "jul"
+#  } else if(acervo$MÊS[i] == "ago3"){acervo$MÊS[i] <- "ago"
+#  }
+#  print(i)
+#}
 
 acervo$MÊS <- factor(acervo$MÊS, levels(as.factor(acervo$MÊS))[c(5, 4, 9, 1, 8, 7, 6, 2, 12, 11, 10, 3)])
 
+acervo<- unique(acervo)
 
 todos <- left_join(dados_atu, acervo, by = c("UNIDADE" = "Comarca - Unidade", "DATA" = "MÊS", "ANO" = "ANO"))
 
 # Taxa de congestionamento
 
-taxa <- read_excel("Taxa de congestionamento - Atualizado em  2021-06-15 14-32-27.xls") ###
+taxa <- read_excel("Taxa de congestionamento - Atualizado em  2021-08-02 08-00-21.xls") ###
 
 for (i in 1:nrow(taxa)) {
   if (taxa$MÊS[i] == 1) {taxa$mes[i] <- "jan"}
@@ -500,13 +602,13 @@ for (i in 1:nrow(taxa)) {
 taxa <- taxa %>% mutate(mes_ano = paste(mes, str_sub(ANO, start = 3), sep = "/"))
 
 # Mudar a ordem quando acrescentar um mês
-taxa$mes_ano <- factor(taxa$mes_ano, levels(as.factor(taxa$mes_ano))[c(6, 2, 12, 11, 10, 3, 5, 4, 9,1,8,7)])
+taxa$mes_ano <- factor(taxa$mes_ano, levels(as.factor(taxa$mes_ano))[c(2, 12, 11, 10, 3, 5, 4, 9,1,8,7,6)])
 
 taxa$`TAXA LÍQUIDA` <- round(taxa$`TAXA LÍQUIDA`,2)
 
 # Distribuídos
 
-distribuidos <- read_excel("Distribuições - Atualizado em 2021-06-15 14-34-51.xls") ####
+distribuidos <- read_excel("Distribuições - Atualizado em 2021-08-02 08-06-03.xls") ####
 
 distribuidos <- distribuidos %>%
   mutate(Mes = str_sub(`MÊS DE REFERÊNCIA_TEXTO`, end = 3)%>% str_to_lower())
@@ -728,9 +830,9 @@ distribuidos$UNIDADE[which(distribuidos$UNIDADE %in% c("MOSSORÓ - VARA DO JUIZA
 #                      c("MOSSORÓ - VARA DO JUIZADO DE VIOLÊNCIA DOMÉSTICA\nE FAMILIAR CONTRA A MULHER"))] <-
 #  "MOSSORÓ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER"
 
-todos[which(todos$UNIDADE == "MOSSORÓ - VARA DO JUIZADO DE VIOLÊNCIA DOMÉSTICA\nE FAMILIAR CONTRA A MULHER"),][,9]<-21
+todos[which(todos$UNIDADE == "MOSSORÓ - VARA DO JUIZADO DE VIOLÊNCIA DOMÉSTICA\nE FAMILIAR CONTRA A MULHER"),][,9] <- 21
 
-todos[which(todos$UNIDADE == "MOSSORÓ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER"),][,13]<- c(2244,2816,2852,2840,2873, 2914)
+todos[which(todos$UNIDADE == "MOSSORÓ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER"),][,13]<- c(2244,2816,2852,2840,2873, 2947, 3041)
 
 # Criando o arquivo para a análise de fluxo
 
