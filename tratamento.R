@@ -449,6 +449,10 @@ acervo_julho_20$UNIDADE[which(acervo_julho_20$UNIDADE %in%
                                  c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
   "NATAL - JUIZADO ESPECIAL CRIMINAL CENTRAL"
 
+
+
+
+
 acervo_julho_20$UNIDADE[which(acervo_julho_20$UNIDADE %in%
                                  c("NATAL - 14º JUIZADO ESPECIAL CÍVEL"))] <-
   "NATAL - 14º JUIZADO ESPECIAL CÍVEL CENTRAL"
@@ -858,11 +862,11 @@ fluxo_processual <- rbind(saldo, senteca, baixado, acervo_out)
 
 # Dando a saída dos arquivos
 
-saveRDS(todos, file = "Produtividade/indicadores.rds")
+saveRDS(todos, file = "PRODUTIVIDADE/indicadores.rds")
 
-saveRDS(taxa, file = "Produtividade/taxa.rds")
+saveRDS(taxa, file = "PRODUTIVIDADE/taxa.rds")
 
-saveRDS(distribuidos, file = "Produtividade/distribuidos.rds")
+saveRDS(distribuidos, file = "PRODUTIVIDADE/distribuidos.rds")
 
-saveRDS(fluxo_processual, file = "Produtividade/fluxo_processual.rds")
+saveRDS(fluxo_processual, file = "PRODUTIVIDADE/fluxo_processual.rds")
 
