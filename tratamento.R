@@ -15,7 +15,7 @@ dados_atu <- dados_atu %>% filter(str_detect(`MÊS DE REFERÊNCIA`,pattern = "20
 
 dados_2020 <- read_excel("Indicadores - Atualizado em 2020-12-29 11-14-26.xls") 
 
-dados_2021 <- read_excel("Indicadores - Atualizado em 2021-08-02 08-09-29.xls") ####
+dados_2021 <- read_excel("Indicadores - Atualizado em 2021-08-19 17-55-02.xls") ####
 
 dados_2020 <- dados_2020 %>% select(!GRUPO)
 
@@ -472,7 +472,7 @@ names(acervo)[33] <- "jul3"
 
 # acrescentando agosto ao acervo 
 
-acervo_agosto_20 <- read_excel("Acervo - Atualizado em 2021-08-02 08-00-30.xls") ###
+acervo_agosto_20 <- read_excel("Acervo - Atualizado em 2021-08-19 17-31-44.xls") ###
 
 acervo_agosto_20$UNIDADE[which(acervo_agosto_20$UNIDADE %in%
                                 c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
@@ -498,14 +498,17 @@ names(acervo)[34] <- "ago3"
 # Preparando todo o acervo
 
 acervo <- acervo %>% gather("MÊS", "ACERVO", 3:34)
+
+acervo<- unique(acervo)
+
 #aa1<- dim(acervo)[1]
 ano2019<-0
 ano2020<-0
 ano2021<-0
 
-ano2019[1:(98538*12)] <- 2019
-ano2020[1:(98538*12)] <- 2020
-ano2021[1:(98538*8)] <- 2021  ####################################
+ano2019[1:(225*12)] <- 2019
+ano2020[1:(225*12)] <- 2020
+ano2021[1:(225*8)] <- 2021  ####################################
 
 acervo$ANO<- c(ano2019,ano2020,ano2021)
 
@@ -532,18 +535,18 @@ novembro<-"nov"
 dezembro<-"dez"
 
 
-janeiro[1:98538]<- "jan"
-fevereiro[1:98538]<- "fev"
-marco[1:98538]<- "mar"
-abril[1:98538]<- "abr"
-maio[1:98538]<- "mai"
-junho[1:98538]<- "jun"
-julho[1:98538]<- "jul"
-agosto[1:98538]<- "ago"
-setembro[1:98538]<- "set"
-outubro[1:98538]<- "out"
-novembro[1:98538]<- "nov"
-dezembro[1:98538]<- "dez"
+janeiro[1:225]<- "jan"
+fevereiro[1:225]<- "fev"
+marco[1:225]<- "mar"
+abril[1:225]<- "abr"
+maio[1:225]<- "mai"
+junho[1:225]<- "jun"
+julho[1:225]<- "jul"
+agosto[1:225]<- "ago"
+setembro[1:225]<- "set"
+outubro[1:225]<- "out"
+novembro[1:225]<- "nov"
+dezembro[1:225]<- "dez"
 
 AnoCompleto<- c(janeiro,fevereiro,marco,abril,maio,junho,julho,agosto,setembro,outubro,novembro,dezembro)
 
@@ -580,13 +583,13 @@ acervo$MÊS <- c(AnoCompleto,AnoCompleto,AnoAtual)
 
 acervo$MÊS <- factor(acervo$MÊS, levels(as.factor(acervo$MÊS))[c(5, 4, 9, 1, 8, 7, 6, 2, 12, 11, 10, 3)])
 
-acervo<- unique(acervo)
+
 
 todos <- left_join(dados_atu, acervo, by = c("UNIDADE" = "Comarca - Unidade", "DATA" = "MÊS", "ANO" = "ANO"))
 
 # Taxa de congestionamento
 
-taxa <- read_excel("Taxa de congestionamento - Atualizado em  2021-08-02 08-00-21.xls") ###
+taxa <- read_excel("Taxa de congestionamento - Atualizado em  2021-08-19 17-31-41.xls") ###
 
 for (i in 1:nrow(taxa)) {
   if (taxa$MÊS[i] == 1) {taxa$mes[i] <- "jan"}
@@ -606,13 +609,13 @@ for (i in 1:nrow(taxa)) {
 taxa <- taxa %>% mutate(mes_ano = paste(mes, str_sub(ANO, start = 3), sep = "/"))
 
 # Mudar a ordem quando acrescentar um mês
-taxa$mes_ano <- factor(taxa$mes_ano, levels(as.factor(taxa$mes_ano))[c(2, 12, 11, 10, 3, 5, 4, 9,1,8,7,6)])
+taxa$mes_ano <- factor(taxa$mes_ano, levels(as.factor(taxa$mes_ano))[c(12, 11, 10, 3, 5, 4, 9,1,8,7,6,2)])
 
 taxa$`TAXA LÍQUIDA` <- round(taxa$`TAXA LÍQUIDA`,2)
 
 # Distribuídos
 
-distribuidos <- read_excel("Distribuições - Atualizado em 2021-08-02 08-06-03.xls") ####
+distribuidos <- read_excel("Distribuições - Atualizado em 2021-08-19 17-43-58.xls") ####
 
 distribuidos <- distribuidos %>%
   mutate(Mes = str_sub(`MÊS DE REFERÊNCIA_TEXTO`, end = 3)%>% str_to_lower())
@@ -836,7 +839,7 @@ distribuidos$UNIDADE[which(distribuidos$UNIDADE %in% c("MOSSORÓ - VARA DO JUIZA
 
 todos[which(todos$UNIDADE == "MOSSORÓ - VARA DO JUIZADO DE VIOLÊNCIA DOMÉSTICA\nE FAMILIAR CONTRA A MULHER"),][,9] <- 21
 
-todos[which(todos$UNIDADE == "MOSSORÓ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER"),][,13]<- c(2244,2816,2852,2840,2873, 2947, 3041)
+todos[which(todos$UNIDADE == "MOSSORÓ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER"),][,13]<- c(2244,2816,2852,2840,2873, 2947, 3041,3091)
 
 # Criando o arquivo para a análise de fluxo
 
