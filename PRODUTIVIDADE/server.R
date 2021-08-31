@@ -290,8 +290,8 @@ shinyServer(function(input, output) {
             sliderTextInput(
                 inputId = "per_taxa",
                 label = h4("Selecione o período:"), 
-                choices = unique(grupo_taxa()$mes_ano)[12:2],
-                selected = unique(grupo_taxa()$mes_ano)[c(12, 2)]
+                choices = unique(grupo_taxa()$mes_ano)[12:1],
+                selected = unique(grupo_taxa()$mes_ano)[c(12, 1)]
             )
         
     )
