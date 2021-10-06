@@ -1,5 +1,5 @@
 
-__**Data da última atualização: 21/09/2021 08:00**__
+__**Data da última atualização: 06/10/2021 08:00**__
 
 ## Objetivos
 
@@ -201,7 +201,7 @@ Segue abaixo um guia que mostra a qual grupo pertence cada Undidade Judiciária:
 #### GRUPO 13
 
 - NATAL - 12ª VARA CRIMINAL
-- NATAL - 14ª VARA CRIMINAL
+- NATAL - 13ª VARA CRIMINAL
 - NATAL - 15ª VARA CRIMINAL
 - NATAL - 16ª VARA CRIMINAL
 
@@ -321,8 +321,8 @@ Segue abaixo um guia que mostra a qual grupo pertence cada Undidade Judiciária:
 
 #### GRUPO 27
 
-- NATAL - 13ª VARA CRIMINAL
-- NATAL - 17ª VARA CRIMINAL
+- NATAL - 14ª VARA CRIMINAL
+- NATAL - 1ª VARA REGIONAL DE EXECUÇÃO PENAL
 
 #### GRUPO 28
 
