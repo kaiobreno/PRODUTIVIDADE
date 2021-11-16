@@ -15,7 +15,7 @@ dados_atu <- dados_atu %>% filter(str_detect(`MÊS DE REFERÊNCIA`,pattern = "20
 
 dados_2020 <- read_excel("Indicadores - Atualizado em 2020-12-29 11-14-26.xls") 
 
-dados_2021 <- read_excel("Indicadores - Atualizado em 2021-10-05 09-29-09.xls") ####
+dados_2021 <- read_excel("Indicadores - Atualizado em 2021-10-11 08-06-51.xls") ####
 
 dados_2020 <- dados_2020 %>% select(!GRUPO)
 
@@ -518,7 +518,7 @@ names(acervo)[35] <- "set3"
 
 # acrescentando outubro ao acervo 
 
-acervo_outubro_20 <- read_excel("Acervo - Atualizado em 2021-10-05 09-00-49.xls") ###
+acervo_outubro_20 <- read_excel("Acervo - Atualizado em 2021-10-11 08-00-18.xls") ###
 
 acervo_outubro_20$UNIDADE[which(acervo_outubro_20$UNIDADE %in%
                                    c("NATAL - JUIZADO ESPECIAL CRIMINAL"))] <-
@@ -635,7 +635,7 @@ todos <- left_join(dados_atu, acervo, by = c("UNIDADE" = "Comarca - Unidade", "D
 
 # Taxa de congestionamento
 
-taxa <- read_excel("Taxa de congestionamento - Atualizado em  2021-10-05 09-00-49.xls") ###
+taxa <- read_excel("Taxa de congestionamento - Atualizado em  2021-10-11 08-00-17.xls") ###
 
 for (i in 1:nrow(taxa)) {
   if (taxa$MÊS[i] == 1) {taxa$mes[i] <- "jan"}
@@ -661,7 +661,7 @@ taxa$`TAXA LÍQUIDA` <- round(taxa$`TAXA LÍQUIDA`,2)
 
 # Distribuídos
 
-distribuidos <- read_excel("Distribuições - Atualizado em 2021-10-05 09-13-53.xls") ####
+distribuidos <- read_excel("Distribuições - Atualizado em 2021-10-11 08-02-05.xls") ####
 
 distribuidos <- distribuidos %>%
   mutate(Mes = str_sub(`MÊS DE REFERÊNCIA_TEXTO`, end = 3)%>% str_to_lower())
