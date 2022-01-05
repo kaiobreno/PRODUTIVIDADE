@@ -74,7 +74,7 @@ shinyServer(function(input, output) {
                 inputId = "per",
                 label = h4("Selecione o período:"),
                 choices = unique(ano()$DATA),
-                selected = unique(ano()$DATA)[c(1, 11)]
+                selected = unique(ano()$DATA)[c(1, 12)]
             )
         }
         
@@ -505,8 +505,8 @@ shinyServer(function(input, output) {
               sliderTextInput(
                 inputId = "per_dist",
                 label = h4("Selecione o período:"), 
-                choices = unique(ano_dist()$Mes)[1:11],
-                selected = unique(ano_dist()$Mes)[c(1,11)]
+                choices = unique(ano_dist()$Mes)[1:12],
+                selected = unique(ano_dist()$Mes)[c(1,12)]
               )
             }
         
@@ -530,8 +530,8 @@ shinyServer(function(input, output) {
               sliderTextInput(
                 inputId = "per_fluxo",
                 label = h4("Selecione o período:"), 
-                choices = unique(ano_fluxo()$Mes)[1:11],
-                selected = unique(ano_fluxo()$Mes)[c(1,11)]
+                choices = unique(ano_fluxo()$Mes)[1:12],
+                selected = unique(ano_fluxo()$Mes)[c(1,12)]
               )
             }
         
